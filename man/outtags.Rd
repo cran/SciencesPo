@@ -1,4 +1,4 @@
-\encoding{latin1}
+\encoding{UTF-8}
 \name{outtags}
 \alias{outtags}
 \title{Remove String Tags
@@ -14,20 +14,18 @@ outtags(x, tab = FALSE)
 }
 \value{An object of the same type as \code{x}.
 }
-\references{\url{http://danielmarcelino.com/SciencePo}
-}
-\author{Daniel Marcelino}
+
+\author{Daniel Marcelino <dmarcelino@live.com>
+	}
 
 \seealso{ \code{\link{accent}}.
 }
 \examples{
 
-tags <- 'These tags should not be here & # a  .'
+tags <- ('These tags should not be here & # a  .')
 
 outtags(tags)
 
 }
 
-\keyword{ trim }
-\keyword{ tags}
 \keyword{ strings}

@@ -1,4 +1,4 @@
-inyears <-
+get.years <-
 function(earlier, later)
 {
     lt <- data.frame(earlier, later)

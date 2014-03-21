@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{shift}
 \alias{shift}
 \alias{lag}
@@ -18,9 +19,7 @@ shift(x, delta=NA)
 
 \value{ An object of the same type as \code{x}.
 }
-\references{\url{http://danielmarcelino.com/SciencePo}
-}
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 
 \examples{
@@ -36,5 +35,6 @@ min = d <- c(-15, -13, -7, 1, 8,  13, 16, 14, 9, 3, -2, -10) )
 
 }
 
-\keyword{ lag }
-\keyword{ lead }
+\keyword{ attribute }
+\keyword{ models }
+

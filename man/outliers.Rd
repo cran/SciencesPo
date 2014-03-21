@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{outliers}
 \alias{outliers}
 \title{Detection of Outliers
@@ -19,7 +20,7 @@ outliers(x, index = NULL)
 }
 \references{Dixon, W.J. (1950) Analysis of extreme values. \emph{Ann. Math. Stat.} \bold{21(4),} 488--506.
 }
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 
 \seealso{For diminish the impact of outliers see \link{winsor.mean}.
@@ -38,6 +39,5 @@ outliers(x <- rnorm(20))
 
 }
 
-\keyword{ outliers }
-\keyword{ extreme values }
+\keyword{ attribute }
 \keyword{ descriptive stats }

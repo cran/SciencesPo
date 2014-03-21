@@ -28,6 +28,5 @@
 \examples{
 data(swatson93)
 
-## maybe str(swatson93) ; plot(swatson93) ...
 }
 \keyword{datasets}

@@ -1,4 +1,4 @@
-\encoding{latin1}
+\encoding{UTF-8}
 \name{montreal}
 \alias{montreal}
 \docType{data}
@@ -22,8 +22,7 @@
 }
 \source{Report of the PVM--Montreal Police Service (2007). 
 }
-\references{\url{http://danielmarcelino.com/SciencePo}
-}
+
 \examples{
 data(montreal)
 

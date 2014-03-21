@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{rescale}
 \alias{rescale}
 \title{Rescaling as Z-scores and Centering 
@@ -9,18 +10,19 @@ rescale(x, fun = "center")
 }
 \arguments{
   \item{x}{ A vector to be computed}
-  \item{fun}{A function to be applied: 'z-score' or 'z', the default is 'center' or 'c'. }
+  \item{fun}{A function to be applied: `z-score' or `z', the default is `center' or `c'. }
+ 
 }
 
 \value{An object the same class as \code{x}.}
 
-\author{Daniel Marcelino}
+\author{Daniel Marcelino <dmarcelino@live.com>
+	}
 \examples{
 x <- sample(10)
 
 rescale(x)
 }
-\keyword{ centre mean }
-\keyword{ z-scores }
+\keyword{ descriptive stats}
 \keyword{standardization }
 

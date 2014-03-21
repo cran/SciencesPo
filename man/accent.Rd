@@ -1,4 +1,4 @@
-\encoding{latin1}
+\encoding{UTF-8}
 \name{accent}
 \alias{accent}
 
@@ -16,10 +16,8 @@ accent(x)
 \value{ An object of the same type as \code{x}.
 
 }
-\references{\url{http://danielmarcelino.com/SciencePo} 
 
-}
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 
 \seealso{\code{\link{outtags}}
@@ -27,11 +25,10 @@ accent(x)
 
 \examples{
 
-accent('Não me julgues pela metade se não me conheces por inteiro.')
+accent('Não me julgues pela metade se não me conheces por inteiro')
 
 \dontrun{accent(x)}
 }
-\keyword{ accent marks }
+\keyword{ attribute }
 \keyword{ strings }
-\keyword{ diacritics }
 

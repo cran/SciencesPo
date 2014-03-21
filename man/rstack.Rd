@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{rstack}
 \alias{rstack}
 \title{ Produces a Stacked Table With Correlations}
@@ -24,7 +25,7 @@ Aldrich, John (1995) Correlations Genuine and Spurious in Pearson and Yule. \emp
 Spiegel, M. R. (1992) Correlation Theory. in: \emph{Theory and Problems of Probability and Statistics,} 2nd ed. New York: McGraw-Hill, pp. 294--323.
 
 }
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 \note{When using the function to correlate values of a variable with corresponding values at a different time will lead to an autocorrelation table.
 }
@@ -43,7 +44,7 @@ tolatex(rstack(table))
 
 }
 
-\keyword{ correlation }
+
 \keyword{ tables }
 \keyword{ descriptive stats }
-\keyword{ Pearson }
+

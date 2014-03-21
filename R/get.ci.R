@@ -1,11 +1,11 @@
 get.ci <-
-function (sample = NULL, n = NULL, mu = 0, sigma = 1, cl = 0.95, 
+function (sample = NULL, n = NULL, mu = 0, sigma = 1, level = 0.95, 
               type = "mean") 
     {
         magenta <- "#30FE27"
         green <- "#FF0DE5"
-        alpha <- 1 - cl
-        CL <- cl * 100
+        alpha <- 1 - level
+        CL <- level * 100
         N <- sample
         choices <- c("mean", "var", "pi")
         alt <- pmatch(type, choices)
@@ -16,9 +16,9 @@ function (sample = NULL, n = NULL, mu = 0, sigma = 1, cl = 0.95,
             stop("Value for Pi (mu) must be between 0 and 1.")
         if (N <= 0 || n <= 0) 
             stop("Number of random CIs (sample), and sample size (n) must  be at least 1")
-        if (!missing(cl) && (length(cl) != 1 || !is.finite(cl) || 
-                                 cl <= 0 || cl >= 1)) 
-            stop("'cl' must be a single number between 0 and 1")
+        if (!missing(level) && (length(level) != 1 || !is.finite(level) || 
+                                 level <= 0 || level >= 1)) 
+            stop("'level' must be a single number between 0 and 1")
         if (sigma <= 0 && (type == "Var" || type == "Mean")) 
             stop("Variance must be a positive value")
         if (type == "Mean") {

@@ -1,16 +1,17 @@
-\name{GE2010}
-\alias{GE2010}
+\name{ge2010}
+\alias{ge2010}
 \docType{data}
-\title{2010 British General Election Data 
+\title{
+2010 British General Election Data
 }
 \description{
-This is the 2010 General Election data.
+This is the 2010 British general election data as made available by the electoral commission.
 }
-\usage{data(GE2010)}
+\usage{data(ge2010)}
 \format{
   A data frame with 651 observations on the following 144 variables.
   \describe{
-    \item{\code{Press.Association.Reference}}{a numeric vector}
+    \item{\code{Ref}}{a numeric vector}
     \item{\code{Constituency.Name}}{a character vector}
     \item{\code{Region}}{a character vector}
     \item{\code{Election.Year}}{a numeric vector}
@@ -156,10 +157,12 @@ This is the 2010 General Election data.
     \item{\code{YRDPL}}{a numeric vector}
   }
 }
-
-\source{\url{http://www.electoralcommission.org.uk/elections/results/general_elections}
+\source{\url{http://www.electoralcommission.org.uk/elections/}
+}
+\references{
+Marcelino, Daniel (2013). \emph{SciencesPo: A Tool Set for Analyzing Political Behaviour Data}. Available at SSRN: \url{http://dx.doi.org/10.2139/ssrn.2320547}
 }
 \examples{
-data(GE2010)
+data(ge2010)
 }
 \keyword{datasets}

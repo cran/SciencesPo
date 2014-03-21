@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{rprob}
 \alias{rprob}
 
@@ -28,9 +29,9 @@ rprob(x, df = nrow(x) - 2)
 Aldrich, John (1995) Correlations Genuine and Spurious in Pearson and Yule. \emph{Statistical Science,} \bold{10(4),} 364--376.
 
 }
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
-\note{You can print the whole matrix using cor(t(x))
+\note{You can print the whole matrix using \code{cor(t(x))}.
 }
 
 \seealso{\code{\link{rstack}}. 
@@ -50,6 +51,6 @@ summary(lm(output ~ plabor + totcost, data = nerlove63))
 # intersection of output and plabor and output and totcost in the matrix.
 
 }
-\keyword{ correlation }
-\keyword{ probabilities }
+\keyword{ tables }
+\keyword{ probability }
 \keyword{ descriptive stats }

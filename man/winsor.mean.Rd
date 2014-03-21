@@ -1,9 +1,9 @@
-\encoding{latin1}
+\encoding{UTF-8}
 \name{winsor.mean}
 \alias{winsor.mean}
 \title{ Winsorized Mean 
 }
-\description{This function computes winsorized mean. The winsorization consists of recoding the top k values.
+\description{This function computes the winsorized mean. The winsorization approach consists of recoding the top k values.
 }
 \usage{
 winsor.mean(x, k = 1, na.rm = TRUE)
@@ -16,7 +16,7 @@ winsor.mean(x, k = 1, na.rm = TRUE)
   \item{na.rm}{A logical value indicating whether NA values should be stripped before the computations.
 }
 }
-\details{Winsorizing a vector will produce different results than trimming it. By trimming a vector, the extreme values are discarded, while by Winsorizing it will replace the extreme values by certain percentiles instead.
+\details{Winsorizing a vector will produce different results than trimming it. By trimming a vector, the extreme values are discarded, while by winsorizing it the extreme values are replaced by certain percentiles.
 
 }
 \value{ An object of the same type as \code{x}.
@@ -24,17 +24,18 @@ winsor.mean(x, k = 1, na.rm = TRUE)
 }
 \references{
 
-%TODO include a paper that I red about winsorization and robustness, but could not remember at that time.
 Dixon, W. J., and Yuen, K. K. (1999) Trimming and winsorization: A review. \emph{The American Statistician,} \bold{53(3),} 267--269.
+
+Dixon, W. J., and Yuen, K. K. (1960) Simplified Estimation from Censored Normal Samples, \emph{The Annals of Mathematical Statistics,} \bold{31,} 385--391.
 
 Wilcox, R. R. (2012) \emph{Introduction to robust estimation and hypothesis testing.} Academic Press, 30-32.
 
 Statistics Canada (2010) \emph{Survey Methods and Practices.}
 }
 
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
-\note{One might want winsorize estimators, but note that Winsorization tends to be used for one-variable situations, it is rarely used in the multivariate sample survey situation.
+\note{One may want to winsorize estimators, however, winsorization tends to be used for one-variable situations.
 }
 
 
@@ -51,6 +52,4 @@ detail(x)
 }
 
 \keyword{ descriptive stats }
-\keyword{ average }
-\keyword{winsorization}
-\keyword{outliers}
+

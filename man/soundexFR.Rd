@@ -1,9 +1,9 @@
-\encoding{latin1}
+\encoding{UTF-8}
 \name{soundexFR}
 \alias{soundexFR}
 \title{French Soundex Encoding
 }
-\description{SoundexFR function returns a Census-like soundex code for a string given the Francophone sound system. This function was firstly outlined to work with the \code{RecordLinkage} package. Nonetheless, the soundex codes can be helpful in many other settings. See details bellow.
+\description{soundexFR returns a census-like soundex code a string name, given the French sound system. This function was firstly outlined to work with \code{RecordLinkage} package, however, it also is helpful as a standalone function. See details bellow.
 }
 \usage{
 soundexFR(term)
@@ -18,9 +18,9 @@ soundexFR(term)
 \references{
 Borg, Andreas and Murat Sariyar. (2012) \emph{RecordLinkage: Record Linkage in R,} R package version 0.4-1,  \url{http://CRAN.R-project.org/package=RecordLinkage}.
 }
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
-\note{This function is an adaptation of the US census soundex version. See in \url{http://www.archives.gov/research/census/soundex.html}
+\note{This function is an adaptation of the US census soundex version. See in \url{http://archives.gov/research/census/soundex.html}
 }
 
 \seealso{\code{\link{soundexBR}},\code{\link{soundexES}}.
@@ -33,6 +33,5 @@ soundexFR(x <- c('Jean Charest', 'John Charest',
 
 }
 
-\keyword{ soundex }
-\keyword{ French }
-\keyword{ RecordLinkage  }
+\keyword{ strings }
+\keyword{ soundex  }

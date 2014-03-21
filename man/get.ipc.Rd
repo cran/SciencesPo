@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{get.ipc}
 \alias{get.ipc}
 \title{Computes the Intra-party Competition Index
@@ -8,24 +9,17 @@
 get.ipc(n, mag = NULL)
 }
 \arguments{
-  \item{n}{ is a numeric value or a vector containing the number of candidates for a given party nested within districts.}
-  \item{mag}{ is the district magnitude quantity or a vector containing a list of district magnitudes.}
+  \item{n}{ is a value or a vector with the number of candidates for a party within districts.}
+  \item{mag}{ is the district magnitude or a vector containing district magnitudes.}
 }
-\details{Normatively, it is necessary two times the number of candidates
-  out the district magnitude size to generate electoral
-  competitiveness. When it comes to the party level in PR systems, the
-  basic \dQuote{objective} measure is to apply the same reasoning to
-  identify competitiveness not between parties but also within
-  party. Then, the higher the IPC found, the higher the intra-party
-  competition for a given party. 
+\details{Normatively, it is necessary two times the number of candidates out the size of the district to generate electoral
+ competitiveness. When it comes to the party level in PR systems, one might want to apply the same reasoning but also within
+a party. Then, the higher the IPC found, the higher the intra-party competition for a given party. 
 }
 \value{Either a numeric value or a vector with the IPC for each observation.
 }
 
-\references{\url{http://danielmarcelino.com/SciencePo} 
-}
-
-\author{Daniel Marcelino 
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 
 \examples{
@@ -38,7 +32,7 @@ data <- data.frame(
 	p=p <- sample(LETTERS[1:3], 100, replace=TRUE),
 	j=j <- sample(letters[1:13], 100, replace=TRUE) )
 
-## The intraparty competition index for each party nested within districts over time.
+## IPC for each party nested within districts over time.
 
 data$tcan = with(data, ave(i, t, p, j, FUN = sum))
 
@@ -52,10 +46,10 @@ data2 <- data.frame(
 	p=p <- sample(LETTERS[1:3], 13, replace=TRUE),
 	j=j <- sample(letters[1:13], 13, replace=FALSE) )
 
-## The intraparty competition index for each party nested within districts over time.
+## IPC for each party nested with districts and over time.
 
 get.ipc(data2$a_i, mag = 1)
 
 }
-\keyword{ intraparty competition }
-\keyword{ political parties }
+\keyword{ electoral systems }
+\keyword{ attribute }

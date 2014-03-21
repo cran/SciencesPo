@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{get.poly}
 \alias{get.poly}
 \title{Get Polygons from a Shapefile
@@ -11,11 +12,11 @@ get.poly(x)
   \item{x}{ is the shapefile object.}
 }
 
-\value{A maxtirx containing the polygon values.
+\value{A matrix containing the polygon values.
 }
 \references{\url{www.metodologiapolitica.com.br}
 }
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 \examples{
 
@@ -25,5 +26,5 @@ package="maptools") )
 plot(poly <- get.poly(sids))
 
 }
-\keyword{ polygons }
-\keyword{ shapefiles }
+
+\keyword{ spatial }

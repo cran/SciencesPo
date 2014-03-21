@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{kurtosis}
 \alias{kurtosis}
 \title{Computes the Kurtosis
@@ -33,7 +34,7 @@ kurtosis(x, na.rm = FALSE, type = 2)
 \references{
 Balanda, K. P. and H. L. MacGillivray. (1988) Kurtosis: A Critical Review. \emph{The American Statistician,} \bold{42(2), pp. 111--119.}
 }
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 \note{\bold{Skewness} and \bold{Kurtosis} are functions to measure the third and fourth \bold{central moment} of a data distribution. 
 }
@@ -58,6 +59,4 @@ kurtosis(x, type=3)
 detail(x) 
 }
 
-\keyword{ leptokurtic}
-\keyword{ mesokurtic }
 \keyword{ descriptive stats }

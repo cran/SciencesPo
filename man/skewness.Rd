@@ -28,9 +28,9 @@ skewness(x, na.rm = TRUE, type = 2)
 
 }
 \references{
-Joanes, D. N. and C. A. Gill. (1998) Comparing measures of sample skewness and kurtosis. \emph{The Statistician,} \bold{47,} 183--189. \url{http://onlinelibrary.wiley.com/doi/10.1111/1467-9884.00122/abstract}
+Joanes, D. N. and C. A. Gill. (1998) Comparing measures of sample skewness and kurtosis. \emph{The Statistician,} \bold{47,} 183--189.
 }
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 
 \seealso{\code{\link{detail}}.

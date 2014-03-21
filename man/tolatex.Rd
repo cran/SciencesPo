@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{tolatex}
 \alias{tolatex}
 \title{Generate Latex Code
@@ -18,7 +19,7 @@ tolatex(x, title = NULL)
 }
 \references{David B. Dahl (2012) \emph{xtable: Export tables to LaTeX or HTML.}
 }
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 \note{It relies massively on the capabilities of \sQuote{xtable}.
 }
@@ -40,4 +41,4 @@ tolatex(detail(cgreene76, basic = TRUE), cap)
 }
 
 \keyword{ latex }
-\keyword{ xtable}
+\keyword{ tables }

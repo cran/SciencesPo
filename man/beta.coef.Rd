@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{beta.coef}
 \alias{beta.coef}
 \title{Standardized Beta Coefficients
@@ -11,7 +12,7 @@ beta.coef(md)
   \item{md}{is a linear object model.
   }
 }
-\details{Standardized beta coefficients--also known as beta coefficients--are quantities estimated from unstandardized coefficients, which are partially adjusted by the quotient of the standard deviation of an independent variable, and the standard deviation of a dependent variable. Basically, beta coefficients report the relative importance of each independent variables. The standardization is typically done after running a multiple regression model, since it aids the researcher to identify which independent variables have the greater effect. Therefore, the standardization procedure is specially useful when variables are measured in different units.
+\details{Standardized beta coefficients are values estimated from unstandardized coefficients, which are only partially adjusted by the quotient of the standard deviation of an independent variable, and the standard deviation of a dependent variable. Essentially, beta coefficients report the relative importance of each independent variables. Then, this standardization is rather useful for multiple regression models, once it may aid on identifying critical IV.
 }
 \value{ a numeric value of standardized beta coefficient.
 
@@ -19,13 +20,9 @@ beta.coef(md)
 \references{
 Baguley, T. (2009) Standardized or simple effect size: What should be reported?. \emph{British Journal of Psychology,} \bold{100(3),} 603-617.
 
-Dallal, J. Which Predictors Are More Important? \url{http://www.jerrydallal.com/LHSP/importnt.htm}
-
 Gelman, A., & Hill, J. (2006) \emph{Data analysis using regression and multilevel/hierarchical models.} Cambridge University Press.
 }
-\author{Daniel Marcelino
-}
-\note{To be fair, there are pros and cons for using standardized beta coefficients, see for example, positive arguments in Gelman's book and counterarguments in Dallal's page.
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 
 
@@ -38,11 +35,10 @@ data(galton) #get some data
 
 (model <- lm(child ~ parent, data = galton) )
 
-#finally, apply the standardization onto model's coefficients.
+#finally, apply standardization to the coefficients.
 
 beta.coef(model)
 
 }
 
-\keyword{ beta coefficients }
 \keyword{standardization }

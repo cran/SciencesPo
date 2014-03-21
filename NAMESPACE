@@ -1,27 +1,49 @@
-export(accent)
-export(anonymize)
-export(beta.coef)
-export(cv)
-export(detail)
-export(get.ci)
-export(get.ipc)
-export(get.poly)
-export(gsr)
-export(inyears)
-export(kurtosis)
-export(lsq)
-export(outliers)
-export(rescale)
-export(outtags)
-export(rprob)
-export(rstack)
-export(se)
-export(shift)
-export(skewness)
-export(soundexBR)
-export(soundexES)
-export(soundexFR)
-export(tableau)
-export(tolatex)
-export(winsor.mean)
+# NAMESPACE file for SciencesPo
 
+importFrom("utils", "packageDescription")
+importFrom("stats", "sd")
+importFrom("data.table", "data.table")
+importFrom("maptools", "readShapePoly")
+
+# export all functions/variables that don't start with a .
+# exportPattern("^[^\\.]")
+
+export(
+	accent,
+	anonymize,
+	beta.coef,
+	cv,
+	dummy,
+	fptp2av,
+	get.ci,
+	get.ipc,
+	get.poly,
+	get.years,
+	kurtosis,
+	lsq,
+	outliers,
+	outtags,
+	psum,
+	rprob,
+	rescale,
+	rstack,
+	se,
+	shift,
+	skewness,
+	winsor.mean
+)
+	
+   ## Soundex
+export(
+	soundexBR,
+	soundexES,
+	soundexFR
+)
+
+	## Tables
+export(
+    detail,
+	tableau,
+	tolatex,
+	top.foot
+)

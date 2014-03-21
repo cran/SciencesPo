@@ -1,9 +1,9 @@
-\encoding{latin1}
+\encoding{UTF-8}
 \name{soundexES}
 \alias{soundexES}
 \title{Spanish Soundex Encoding
 }
-\description{SoundexES function returns a Census-like soundex code for a string given the hispanic sound system. This function was firstly outlined to work with the \code{RecordLinkage} package. Nonetheless, the soundex codes can be helpful in many other settings. See details bellow.
+\description{soundexES returns a census-like soundex code a string name, given the Spanish sound system. This function was firstly outlined to work with \code{RecordLinkage} package, however, it also is helpful as a standalone function. See details bellow.
 }
 \usage{
 soundexES(term)
@@ -18,9 +18,9 @@ soundexES(term)
 Borg, Andreas and Murat Sariyar. (2012) \emph{RecordLinkage: Record Linkage in R,} R package version 0.4-1,  \url{http://CRAN.R-project.org/package=RecordLinkage}.
 
 }
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
-\note{This function is an adaptation of the US census soundex version. See in \url{http://www.archives.gov/research/census/soundex.html}
+\note{This function was adapted from the US census soundex version. See in \url{http://archives.gov/research/census/soundex.html}
 }
 
 \seealso{\code{\link{soundexBR}}, \code{\link{soundexFR}} .
@@ -28,15 +28,11 @@ Borg, Andreas and Murat Sariyar. (2012) \emph{RecordLinkage: Record Linkage in R
 
 \examples{
 
-soundexES(x <- c('Alejandro Angel Tapias', 'Alejandro Tapias',
-'Alejandro A. Tapias', 'Alexander Angel Tapias',
+soundexES(x <- c('Alejandro Angel Tapias', 'Alejandro Tápias',
+'Alejandro A. Tapias', 'Alexander Angel Tápias',
 'Alexandre Angel Tapias'))
 
-\dontrun{soundexES(y <- c('Beatriz Rivera', 'Carol Galais', 'Evita Perón', 
-'Irene Martin') )
-}
 }
 
-\keyword{ soundex }
-\keyword{ Spanish }
-\keyword{ RecordLinkage  }
+\keyword{ strings }
+\keyword{ soundex  }

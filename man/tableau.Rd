@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{tableau}
 \alias{tableau}
 \title{Proportion Table for Univariate Analysis
@@ -15,20 +16,17 @@ tableau(var, title=NULL)
 \value{ A data frame object.
 }
 
-\references{\url{http://danielmarcelino.com/SciencePo}
-}
 
-\author{Daniel Marcelino
+\author{Daniel Marcelino <dmarcelino@live.com>
 }
 \examples{
 
  x <- rep(1:5, 100)
 
-cap <- "My Table of Proportions"
+cap <- "My Table With Proportions"
 
 tableau(x, title = cap)
 }
 
 \keyword{ tables }
-\keyword{ proportions }
 \keyword{ descriptive stats }

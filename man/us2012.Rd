@@ -1,11 +1,12 @@
-\name{US12}
-\alias{US12}
+\encoding{UTF-8}
+\name{us2012}
+\alias{us2012}
 \docType{data}
 \title{US Presidential Election Opinion Polls
 }
 \description{Opinion Polls for the 2012 presidential campaign.
 }
-\usage{data(US12)}
+\usage{data(us2012)}
 \format{
   A data frame with 588 observations and 10 variables.
   \describe{
@@ -22,9 +23,9 @@
   }
 }
 
-\source{many source, see details inside of the data.}
+\source{Several sources, but see details in the data file itself.}
 
 \examples{
-data(US12)
+data(us2012)
 }
 \keyword{datasets}
