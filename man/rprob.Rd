@@ -52,5 +52,4 @@ summary(lm(output ~ plabor + totcost, data = nerlove63))
 
 }
 \keyword{ tables }
-\keyword{ probability }
 \keyword{ descriptive stats }

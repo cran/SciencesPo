@@ -39,5 +39,5 @@ outliers(x <- rnorm(20))
 
 }
 
-\keyword{ attribute }
+\keyword{ attributes }
 \keyword{ descriptive stats }

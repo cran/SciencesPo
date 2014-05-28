@@ -34,5 +34,4 @@ soundexES(x <- c('Alejandro Angel Tapias', 'Alejandro Tápias',
 
 }
 
-\keyword{ strings }
 \keyword{ soundex  }

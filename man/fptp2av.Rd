@@ -4,7 +4,7 @@
 
 \title{FPTP to AV
 }
-\description{Performs simulations for the likely AV election votes based on the actual FPTP votes.
+\description{A Program for Performing Simulations of Alternative Vote using the actual FPTP votes.
 }
 \usage{
 fptp2av(data = NULL, link = NULL)
@@ -64,7 +64,7 @@ UCUNF<-c("APNI", "SF", "DUP")
 UKIP<-c("BNP", "NF", "Con") 
 
 ## vector with candidate relations:
-candidate_relations<-structure(list(APNI,BNP,Ch_P,Con,CPA,DUP,ED,Grn,
+party_chains <-structure(list(APNI,BNP,Ch_P,Con,CPA,DUP,ED,Grn,
 	Lab,LD,MRLP,NF,PC,Respect,SDLP,SF,Soc,SNP,SSP,TUSC,TUV,UCUNF,
 	UKIP), .Names = c("APNI","BNP","Ch_P","Con","CPA","DUP","ED","Grn","Lab",
 "LD","MRLP","NF","PC","Respect","SDLP","SF","Soc","SNP","SSP","TUSC",
@@ -75,5 +75,5 @@ candidate_relations<-structure(list(APNI,BNP,Ch_P,Con,CPA,DUP,ED,Grn,
 
 }
 
-\keyword{ electoral systems }
-\keyword{ simulation }
+\keyword{ political behaviour }
+\keyword{ simulations }

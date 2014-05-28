@@ -27,4 +27,4 @@ psum(..., na.rm = FALSE)
 	Swingy <-psum(us2012$Obama, us2012$Romney-100)
 }
 \keyword{ descriptive stats }
-\keyword{ attribute }
+\keyword{ attributes }

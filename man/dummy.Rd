@@ -33,5 +33,5 @@ Daniel Marcelino <dmarcelino@live.com>
 data(ltaylor96)
 dummy(ltaylor96$year)
 }
-\keyword{ attribute }
+\keyword{ attributes }
 \keyword{ models }

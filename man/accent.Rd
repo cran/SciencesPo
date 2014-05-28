@@ -29,6 +29,6 @@ accent('Não me julgues pela metade se não me conheces por inteiro')
 
 \dontrun{accent(x)}
 }
-\keyword{ attribute }
-\keyword{ strings }
+\keyword{ attributes }
+
 

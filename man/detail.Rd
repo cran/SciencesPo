@@ -48,5 +48,4 @@ detail(cgreene76, trim = 0.5, k = 3)
 }
 
 \keyword{ descriptive stats }
-\keyword{ summary }
 \keyword{ tables }

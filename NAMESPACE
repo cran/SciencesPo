@@ -3,7 +3,7 @@
 importFrom("utils", "packageDescription")
 importFrom("stats", "sd")
 importFrom("data.table", "data.table")
-importFrom("maptools", "readShapePoly")
+importFrom("xtable", "xtable")
 
 # export all functions/variables that don't start with a .
 # exportPattern("^[^\\.]")
@@ -17,7 +17,6 @@ export(
 	fptp2av,
 	get.ci,
 	get.ipc,
-	get.poly,
 	get.years,
 	kurtosis,
 	lsq,

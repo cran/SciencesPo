@@ -1,7 +1,7 @@
 fptp2av <-
 function(data=NULL, link=NULL){
 	if(is.null(data)){
-	stop("A valid FPTP votes dataset is needed to perform the simulations.")
+	stop("A valid FPTP vote dataset is needed to perform the simulations.")
 	}
 	else{
 		if(is.null(link)){
@@ -11,7 +11,7 @@ function(data=NULL, link=NULL){
 	start_time<-(Sys.time())
 	new1<-NULL;candidates<-NULL;vote_spread<-NULL;
 	
-	.Constituency <-
+	.District <-
 	function(name, electorate, each_row, link, max_vote_length){
 		votes<-list()
 		for(candid in 1:length(each_row[,candidates])){
@@ -176,7 +176,7 @@ function(start_time) {
 }
 
 
-column.names<-c("Constituency", "Total.Votes", "Changed", "FPTP.Winner", "FPTP.Winner.Votes",
+column.names<-c("District", "Total.Votes", "Changed", "FPTP.Winner", "FPTP.Winner.Votes",
 	 "AV.Winner", "AV.Winner.Votes")
 
 data.rd<-data.table(data)
@@ -197,14 +197,14 @@ for(row in 1:(nrow(data.rd)-1)){
 	#write the data to a matrix
 	if(first==T){
 	first=F
-	new.colnames<-c("Constituency", "Total.Votes",
+	new.colnames<-c("District", "Total.Votes",
 		 "Changed", "FPTP.Winner", "FPTP.Winner.Votes", "AV.Winner", "AV.Winner.Votes", "No.of.Rounds")
 	data.wt<-matrix(nrow=0,ncol=8,dimnames=list(c(),new.colnames))
 	}
-	votess<-.Constituency(name, electorate, each_row, link, 4)
+	votess<-.District(name, electorate, each_row, link, 4)
 	counter<-0
 	results_vec<-.get_results(votess, counter)
-  #print(.Constituency(name, electorate, each_row, link,4))
+  #print(.District(name, electorate, each_row, link,4))
 	fptp_winner<-results_vec[[1]]
 	fptp_votes<-results_vec[[2]]
 	av_winner<-results_vec[[3]]

@@ -81,6 +81,4 @@ getPairs(pairs, max.weight = Inf, min.weight = -Inf)
 	}
 }
 
-\keyword{ strings }
 \keyword{ soundex  }
-

@@ -33,4 +33,4 @@ lsq(4, 2, seed = 51)
 }
 
 
-\keyword{ experiments }
+\keyword{ simulations }

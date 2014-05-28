@@ -40,5 +40,4 @@ tolatex(detail(cgreene76, basic = TRUE), cap)
 
 }
 
-\keyword{ latex }
 \keyword{ tables }

@@ -36,5 +36,5 @@ anonymize(weather)
 
 }
 
-\keyword{ anonymize }
-\keyword{ randomize }
+\keyword{ tables }
+

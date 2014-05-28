@@ -28,4 +28,3 @@ outtags(tags)
 
 }
 
-\keyword{ strings}

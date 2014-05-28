@@ -35,4 +35,4 @@ get.years(earlier, later)
 }
 
 \keyword{ descriptive stats }
-\keyword{ attribute }
+\keyword{ attributes }

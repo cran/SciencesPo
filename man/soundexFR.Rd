@@ -33,5 +33,4 @@ soundexFR(x <- c('Jean Charest', 'John Charest',
 
 }
 
-\keyword{ strings }
 \keyword{ soundex  }

@@ -41,4 +41,5 @@ beta.coef(model)
 
 }
 
-\keyword{standardization }
+\keyword{ standardization }
+\keyword{ models }

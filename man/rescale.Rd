@@ -6,11 +6,11 @@
 \description{Provides a rapidly way to generate standard variables. 
 }
 \usage{
-rescale(x, fun = "center")
+rescale(x, FUN = "center")
 }
 \arguments{
   \item{x}{ A vector to be computed}
-  \item{fun}{A function to be applied: `z-score' or `z', the default is `center' or `c'. }
+  \item{FUN}{A function to be applied: `z-score' or `z', the default is `center' or `c'. }
  
 }
 
@@ -20,9 +20,11 @@ rescale(x, fun = "center")
 	}
 \examples{
 x <- sample(10)
-
-rescale(x)
+rescale(x) # centering 
+rescale(x, FUN=="full")
+rescale(x, FUN=="-0.5,0.5") # for binary input
+rescale(x, FUN=="0/1") # for binary input
 }
-\keyword{ descriptive stats}
+\keyword{ models }
 \keyword{standardization }
 

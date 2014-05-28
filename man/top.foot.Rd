@@ -38,4 +38,4 @@ Daniel Marcelino <dmarcelino@live.com>
 data(galton)
 top.foot(galton)
 }
-\keyword{ describe }
+\keyword{ tables }

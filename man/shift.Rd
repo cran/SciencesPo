@@ -35,6 +35,6 @@ min = d <- c(-15, -13, -7, 1, 8,  13, 16, 14, 9, 3, -2, -10) )
 
 }
 
-\keyword{ attribute }
+\keyword{ attributes }
 \keyword{ models }
 

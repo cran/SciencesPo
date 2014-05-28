@@ -105,7 +105,9 @@ function (x, basic = FALSE, na.rm = TRUE, trim = 0.2, type = 2, k = 1)
                     max = scores[, 11] )
             }
         }
-        output <- format(round(data.frame(vars = vars, temp), 1), nsmall = 0)
-        class(output) <- c("SciencePo", "detail", "data.frame")
-        return(output)
-    }
+   output <- format(round(data.frame(vars = vars, temp), 1), nsmall = 0)
+   
+   class(output) <- c("SciencePo", "detail", "data.frame")
+   return(output)
+
+}

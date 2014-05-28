@@ -29,4 +29,4 @@ get.ci(1000, 1, .29, 2, .90)
 }
 
 \keyword{ descriptive stats }
-\keyword{ simulation }
+\keyword{ simulations }

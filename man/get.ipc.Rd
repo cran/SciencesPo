@@ -51,5 +51,5 @@ data2 <- data.frame(
 get.ipc(data2$a_i, mag = 1)
 
 }
-\keyword{ electoral systems }
-\keyword{ attribute }
+\keyword{ political behaviour }
+
