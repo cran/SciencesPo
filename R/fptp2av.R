@@ -27,7 +27,7 @@ function(data=NULL, link=NULL){
 					ball_s[i]<-list(c(ballot))
 				}
 				depth_vec<-sample(1:max_vote_length, as.numeric(as.character(each_row[candid,vote_spread])), replace=T)
-				depth_vec<-data.table(depth_vec)
+				depth_vec<-data.table::data.table(depth_vec)
 				depth_vec<-depth_vec[,c("new1"):=.add_ballot(depth_vec,ball_s)]
 				votes_1<-depth_vec[,new1]
 			} else {
@@ -38,7 +38,7 @@ function(data=NULL, link=NULL){
 		
 	    # votes_1<-rep(list(c(ballot)), as.numeric(as.character(each_row[candid,vote_spread])))
 	    votes<-c(votes,list(votes_1))
-		names(votes)<-c(names(votes)[1: (length(votes)-1) ], as.character(each_row[candid,candidates]))
+		names(votes)<-c(names(votes)[1:(length(votes)-1) ], as.character(each_row[candid,candidates]))
 	  }
 	  return(votes)
 	}
@@ -47,8 +47,7 @@ function(data=NULL, link=NULL){
 		r1<-ball_s[x]
 		return(r1)
 	}
-	.add_followers <-
-function(depth, followers, each_row){
+	.add_followers <- function(depth, followers, each_row){
 	#vs<-as.numeric(as.character(each_row[,vote_spread]))
 	ball<-character(depth)
 	for(i in 1: depth){
@@ -176,30 +175,30 @@ function(start_time) {
 }
 
 
-column.names<-c("District", "Total.Votes", "Changed", "FPTP.Winner", "FPTP.Winner.Votes",
+column.names<-c("District", "Turnout", "Outcome", "FPTP.Winner", "FPTP.Winner.Votes",
 	 "AV.Winner", "AV.Winner.Votes")
 
-data.rd<-data.table(data)
-parties<-names(data.rd)[c(7:ncol(data.rd))]
+data.to.read<-data.table::data.table(data)
+parties<-names(data.to.read)[c(7:ncol(data.to.read))]
 
 first<-T
-for(row in 1:(nrow(data.rd)-1)){
+for(row in 1:(nrow(data.to.read)-1)){
 #for (row in 1:4){
-  each_row<-cbind(c(names(data.rd[row])),c(t(data.rd[row])))
+  each_row<-cbind(c(names(data.to.read[row])),c(t(data.to.read[row])))
   name<-each_row[2,2]
   electorate<-as.integer(each_row[6,2])
-  each_row<-as.data.table(each_row[complete.cases(each_row),])
+  each_row<-data.table::as.data.table(each_row[complete.cases(each_row),])
   each_row<-each_row[7:nrow(each_row)]
-  setnames(each_row,c("V1","V2"),c("candidates", "vote_spread"))
+  data.table::setnames(each_row,c("V1","V2"),c("candidates", "vote_spread"))
 
 	print(paste(name," - ",electorate," - ", paste(each_row[,candidates], collapse=" ")) )
 	print(each_row)
 	#write the data to a matrix
 	if(first==T){
 	first=F
-	new.colnames<-c("District", "Total.Votes",
-		 "Changed", "FPTP.Winner", "FPTP.Winner.Votes", "AV.Winner", "AV.Winner.Votes", "No.of.Rounds")
-	data.wt<-matrix(nrow=0,ncol=8,dimnames=list(c(),new.colnames))
+	new.colnames<-c("District", "Turnout",
+		 "Outcome", "FPTP.Winner", "FPTP.Winner.Votes", "AV.Winner", "AV.Winner.Votes", "Rounds")
+	data.to.write<-matrix(nrow=0,ncol=8,dimnames=list(c(),new.colnames))
 	}
 	votess<-.District(name, electorate, each_row, link, 4)
 	counter<-0
@@ -210,13 +209,13 @@ for(row in 1:(nrow(data.rd)-1)){
 	av_winner<-results_vec[[3]]
 	av_votes<- results_vec[[4]]
 	av_counter<- results_vec[[5]]
-if(fptp_winner==av_winner){changed<-"FPTP"} 	else{changed<-"AV"}
-	newrow<-c(name,toString(electorate),changed,fptp_winner,toString(fptp_votes),av_winner,toString(av_votes),toString(av_counter))
-	data.wt<-rbind(data.wt,c(newrow))
+if(fptp_winner==av_winner){outcome<-"Unaltered"} 	else{outcome<-"Altered"}
+	newrow<-c(name,toString(electorate),outcome,fptp_winner,toString(fptp_votes),av_winner,toString(av_votes),toString(av_counter))
+	data.to.write<-rbind(data.to.write,c(newrow))
 	message("Done at ", .timediff(start_time))
-} 
-outfile <- paste("Sim.Data",format(Sys.time(),".%a.%b.%Y-%H:%M:%S"),".csv",sep="")
-write.csv(data.wt, file=outfile, row.names=FALSE)
-}
-}
+	} 
+outfile <- paste("Sim_data_in",format(Sys.time(),".%d.%b.%Y-%H:%M:%S"),".csv",sep="")
+write.csv(data.to.write, file=outfile, row.names=FALSE)
+		}
+	}
 }

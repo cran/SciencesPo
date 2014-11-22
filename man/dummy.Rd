@@ -22,9 +22,6 @@ dummy(x, data = NULL, drop = TRUE)
 \value{A matrix object
 
 }
-\references{Marcelino, Daniel (2010) \emph{Sobre dinheiro e eleições: um estudo dos gastos de campanha para o Congresso Nacional em 2002 e 2006.
-		}
-}
 \author{
 Daniel Marcelino <dmarcelino@live.com>
 }

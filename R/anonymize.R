@@ -1,5 +1,6 @@
 anonymize <-
-function(x){
+function(x, keep.names=TRUE){
+  truenames <- names(x)
   if(length(x)>26){
    # letters <-replicate(floor(length(x)/26),{letters <-c(LETTERS, paste(LETTERS, LETTERS, sep=""))})
   }
@@ -10,9 +11,17 @@ function(x){
         var <-paste(names(x)[i],as.numeric(as.factor(x[,i])), sep="")
         }else if(is.numeric(x[,i])){
           var <-x[,i]- mean(x[,i], na.rm=T)}else{var<-x[,i]}
-      return(var)}
+      return(var)
+    }
     x <- data.frame(sapply(seq_along(x), level.obs))
-    names(x) <- names(x)
-    return(x)}
+    
+    if(keep.names==TRUE){
+      names(x) <- truenames 
+    }else{
+      names(x) <- names(x)
+    }
+    return(x)
+  }
   x <-level.x(x)
-  return(x)}
+  return(x)
+}

@@ -36,34 +36,34 @@ data(ge2010)
 # Let's take a small portion of the data.
 IR <-ge2010[ge2010$Region=="Northern Ireland",]
 
-## First, create some vectors for candidates/parties link 
-## Here I considered everyone who fielded more than 10 candidates
+## First, we create vectors for parties/candidates link 
+## For simplicity, I'm considering only parties which received some votes.
 
 APNI<- c("SF", "DUP", "SDLP", "TUV", "UCUNF")
 BNP<-c("Ch P", "Con", "CPA", "NF", "UKIP");
-Ch_P<-c("BNP", "CPA", "Con", "ED") #Christian Party;
-Con<-c("LD", "UKIP", "ED", "Ch P", "CPA") #Conservative Party;
+Ch_P<-c("BNP", "CPA", "Con", "ED")
+Con<-c("LD", "UKIP", "ED", "Ch P", "CPA")
 CPA<-c("BNP", "Ch P", "Con", "ED") 
 DUP<-c("SDLP", "TUV", "UCUNF", "APNI") 
-ED<-c("Con", "BNP", "NF", "CPA", "Ch P") #English Democrats;
+ED<-c("Con", "BNP", "NF", "CPA", "Ch P")
 Grn<-c("LD", "Lab", "SDLP", "PC", "SSP", "TUSC", "TUV") 
 Lab<-c("LD", "Grn", "SDLP", "Soc", "SSP", "TUSC", "TUV") 
-LD<-c("Lab", "Con", "Grn", "PC", "SDLP") #Lib Dem;
+LD<-c("Lab", "Con", "Grn", "PC", "SDLP")
 MRLP<-c("Con", "Lab", "LD", "Grn", "PC", "SDLP", "SNP", "SSP", "UKIP")
-NF<-c("BNP", "Con", "ED", "UKIP") #National Front;
+NF<-c("BNP", "Con", "ED", "UKIP")
 PC<-c("Con", "Lab", "LD") 
 Respect<-c("Con", "Lab", "LD") 
-SDLP<-c("Grn", "Lab", "LD") #Social Democratic & Labour Party;
+SDLP<-c("Grn", "Lab", "LD") 
 SF<-c("APNI", "USUNF") 
-Soc<-c("Lab", "SSP", "SDLP", "TUSC", "TUV") #Lab Socialist Labour Party;
-SNP<-c("Ch P", "CPA", "UKIP") #Scottish National Party;
+Soc<-c("Lab", "SSP", "SDLP", "TUSC", "TUV") 
+SNP<-c("Ch P", "CPA", "UKIP")
 SSP<-c("Grn", "Lab", "LD", "SDLP", "TUSC", "TUV") 
 TUSC<-c("SDLP", "Soc", "SSP", "TUV") 
 TUV<-c("SDLP", "Soc", "SSP", "TUSC") 
 UCUNF<-c("APNI", "SF", "DUP") 
 UKIP<-c("BNP", "NF", "Con") 
 
-## vector with candidate relations:
+## vector with party/candidate relations:
 party_chains <-structure(list(APNI,BNP,Ch_P,Con,CPA,DUP,ED,Grn,
 	Lab,LD,MRLP,NF,PC,Respect,SDLP,SF,Soc,SNP,SSP,TUSC,TUV,UCUNF,
 	UKIP), .Names = c("APNI","BNP","Ch_P","Con","CPA","DUP","ED","Grn","Lab",
@@ -71,8 +71,7 @@ party_chains <-structure(list(APNI,BNP,Ch_P,Con,CPA,DUP,ED,Grn,
 "TUV","UCUNF","UKIP" ));
 
 ## Run the algorithm
- \dontrun{fptp2av(data=IR, link=candidate_relations)}
-
+ \dontrun{fptp2av(data=IR, link=party_chains)}
 }
 
 \keyword{ political behaviour }

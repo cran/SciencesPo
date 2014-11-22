@@ -8,7 +8,7 @@ function (x, data = NULL, drop = TRUE)
     }
     else {
         if (length(x) > 1) 
-            stop("More than one variable to create dummies.")
+            stop("More than one variable to create dummies at same  time.")
         varname <- x
         x <- data[, varname]
     }

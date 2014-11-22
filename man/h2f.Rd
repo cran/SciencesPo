@@ -1,19 +1,23 @@
 \encoding{UTF-8}
-\name{top.foot}
-\alias{top.foot}
-\title{Showing Top Foot Lines
+\name{h2f}
+\alias{h2f}
+\title{
+Shows the head and the foot lines of a data frame
 }
-\description{Shows the first and last lines of an object simultaneously .
+\description{
+Shows the first and last lines of an object simultaneously .
 }
 \usage{
-top.foot(x, head = 4, tail = 4, digits = 2, ellipsis = TRUE)
+h2f(x, head = 4, tail = 4, digits = 2, ellipsis = TRUE)
 }
 \arguments{
-  \item{x}{ An object.
+  \item{x}{
+  	An object.
+
 }
   \item{head}{
-  	A numeric value for lines to show.
-  }
+	A numeric value for lines to show.
+}
   \item{tail}{
 A numeric value for lines to show.
 }
@@ -24,18 +28,19 @@ A numeric value for lines to show.
   A logical value. If TRUE, ellipsis will be printed between the first and last lines.
 }
 }
-\value{An object of the same type.
-}
 
+\value{
+An object of the same type.
+}
 \author{
 Daniel Marcelino <dmarcelino@live.com>
 }
 
 \seealso{
-\code{\link{detail}}, \code{\link{head}}, \code{\link{tail}}
+\code{\link{detail}}
 }
 \examples{
 data(galton)
-top.foot(galton)
+h2f(galton)
 }
 \keyword{ tables }

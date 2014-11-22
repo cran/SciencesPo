@@ -1,4 +1,4 @@
-top.foot <-
+h2f <-
 function (x, head = 4, tail = 4, digits = 2, ellipsis = TRUE) 
 {
     if (is.data.frame(x) | is.matrix(x)) {
