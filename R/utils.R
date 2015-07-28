@@ -113,8 +113,6 @@ NULL
 .valid<-function(x,na.rm=TRUE){
   return(ifelse(na.rm,sum(!is.na(x)),length(x)))}
 
-
-
 is.formula <- function(expr) {
   inherits(expr, "formula") || (is.call(expr) && expr[[1L]] == "~")
 }
@@ -162,7 +160,6 @@ min2hour <- function(min) {
 #' @param style An integer for style.
 #' @param active A logical value.
 #' @export
-#' @importFrom utils txtProgressBar setTxtProgressBar
 #'
 .progress <- function(style = 3, active = TRUE, ...) {
   ntasks <- 0
@@ -172,13 +169,13 @@ min2hour <- function(min) {
   if (active) {
     list(
       init = function(x) {
-        txt <<- txtProgressBar(max = x, style = style, ...)
-        setTxtProgressBar(txt, 0)
+        txt <<- utils::txtProgressBar(max = x, style = style, ...)
+        utils::setTxtProgressBar(txt, 0)
         max <<- x
       },
       step = function() {
         ntasks <<- ntasks + 1
-        setTxtProgressBar(txt, ntasks)
+        utils::setTxtProgressBar(txt, ntasks)
         if (ntasks == max) cat("\n")
       },
       term = function() close(txt)
@@ -191,3 +188,5 @@ min2hour <- function(min) {
     )
   }
 }
+NULL
+
