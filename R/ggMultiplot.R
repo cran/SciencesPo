@@ -55,3 +55,11 @@
   }
 }
 NULL
+
+#' @title Arrange multiple ggplot objects
+#' @param \dots a list of ggplot objects
+#' @export
+`ggplotArrange` <- function(...){
+  ggMultiplot(..., ncols=1, layout=NULL)
+}
+NULL

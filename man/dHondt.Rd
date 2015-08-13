@@ -7,7 +7,7 @@
 dHondt(parties, votes, seats)
 }
 \arguments{
-\item{parties}{A vector containig the identification of parties or candidates accordingly to the election outcome.}
+\item{parties}{A vector containig parties labels or candidates accordingly to the \code{votes} vector order.}
 
 \item{votes}{A vector containing the total number of formal votes received by the parties/candidates.}
 
@@ -21,7 +21,9 @@ Adapted from Carlos Bellosta's replies in the R-list.
 }
 \examples{
 votes <- sample(1:10000, 5)
-dHondt(letters[1:5], votes, 5 )
+parties <- sample(letters, 5)
+dHondt(parties, votes, 5 )
+
 
 # Example: 2014 Brazilian election for the lower house in the state of Ceara.
 # Coalitions leading by the following parties:
