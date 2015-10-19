@@ -1,3 +1,4 @@
+#' @encoding UTF-8
 #' @title Round numbers with no leading zero
 #'
 #' @param x A numeric vector of values to be rounded.
@@ -23,5 +24,5 @@
     }
   }
   z <- sub("^([-]?)0[.]","\\1.", gsub(" +", "", yk))
-  z
+  print(noquote(z))
 }

@@ -12,6 +12,9 @@ theme_pub(base_size = 14, base_family = "helvetica")
 \item{base_family}{Enables to set the font family of all text elements.}
 }
 \description{
-Theme for mapping  with ggplot
+Theme for plotting  with ggplot
+}
+\seealso{
+\code{\link[ggplot2]{theme}}, \code{\link{theme_black}}, \code{\link{theme_map}}.
 }
 

@@ -7,11 +7,12 @@
 recode(x, ...)
 }
 \arguments{
-\item{x}{The data object.}
+\item{x}{The vector whose values will be recoded.}
 
 \item{\dots}{The parameters to be used in recode.}
 }
 \description{
-Method for recoding
+This utility function will recode values from an original \code{\link{character}}
+or \code{\link{factor}} vector with new values.
 }
 

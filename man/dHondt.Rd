@@ -37,11 +37,12 @@ dHondt(parties=names(results), votes=results, seats=19)
 
 votes <- c(187906, 326841, 132531, 981096, 2043217,15061,103679,109830, 213988, 67145, 278267)
 
-parties <- c("PC do B", "PDT","PEN", "PMDB", "PRB","PSB","PSC", "PSTU", "PT do B", "PTC", "PTN")
+parties <- c("PCdoB", "PDT","PEN", "PMDB", "PRB","PSB","PSC", "PSTU", "PTdoB", "PTC", "PTN")
 
 dHondt(parties, votes , 42)
 }
 \author{
 Daniel Marcelino, \email{dmarcelino@live.com}.
 }
+\keyword{Electoral}
 
