@@ -5,7 +5,7 @@
 \alias{bootstrap}
 \alias{bootstrap.default}
 \alias{bootstrap.model}
-\title{Method for Bootstrap}
+\title{Method for Bootstrapping}
 \usage{
 bootstrap(x, ...)
 
@@ -18,7 +18,7 @@ bootstrap(x, ...)
 
 \item{nboots}{The number of bootstraps.}
 
-\item{FUN}{the statistic to bootstrap, ie., mean, var, cov, etc.}
+\item{FUN}{the name of the statistic to bootstrap, ie., 'mean', 'var', 'cov', etc as a string.}
 
 \item{\dots}{further arguments passed to or used by other methods.}
 }

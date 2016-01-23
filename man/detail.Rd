@@ -5,10 +5,10 @@
 \alias{detail}
 \title{Method to Produce Descriptive Statistics Summary}
 \usage{
-detail(.data, by = NULL, basic = TRUE, na.rm = TRUE, trim = 0.2,
+detail(.data, by = NULL, basic = FALSE, na.rm = TRUE, trim = 0.2,
   type = 2, k = 1)
 
-detail(.data, by = NULL, basic = TRUE, na.rm = TRUE, trim = 0.2,
+detail(.data, by = NULL, basic = FALSE, na.rm = TRUE, trim = 0.2,
   type = 2, k = 1)
 }
 \arguments{
@@ -43,10 +43,10 @@ Trimming is not winsorizing. The winsorization process is more complex than simp
 }
 \examples{
 #load some data
-data(ssex)
+data(marriage)
 
 # To apply the function
-detail(ssex, trim = 0.5, k = 3)
+detail(marriage, trim = 0.5, k = 3)
 }
 \author{
 Daniel Marcelino, \email{dmarcelino@live.com}

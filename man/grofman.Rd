@@ -2,17 +2,21 @@
 % Please edit documentation in R/electoralTool.R
 \name{grofman}
 \alias{grofman}
-\title{Grofman index}
+\title{Grofman Index}
 \usage{
-grofman(v, s)
+grofman(v, s, ...)
+
+grofman(v, s, ...)
 }
 \arguments{
-\item{v}{A vector containing the votes for each political party.}
+\item{v}{A numeric vector of data values for votes each political party obtained.}
 
-\item{s}{A vector containing the election outcome as seats.}
+\item{s}{A numeric vector of data values for seats each political party obtained, the election outcome as seats.}
+
+\item{\dots}{Additional arguements (currently ignored)}
 }
 \value{
-A single score given the vector of votes and the vector for seats.
+A single score given the votes each party received and seats obtained.
 }
 \description{
 Calculates the Grofman index of proportionality based on a vector of votes and a vector for the electoral outcome.
@@ -29,5 +33,8 @@ Daniel Marcelino \email{dmarcelino@live.com}
 }
 \references{
 Taagepera, R., and B. Grofman. Mapping the indices of seats-votes disproportionality and inter-election volatility. Party Politics 9, no. 6 (2003): 659-77.
+}
+\seealso{
+\code{\link{cox.shugart}}, \code{\link{inv.cox.shugart}}, \code{\link{politicalDiversity}}, \code{\link{farina}}, \code{\link{gallagher}},  \code{\link{lijphart}}. For more details see the Indices vignette: \code{vignette("Indices", package = "SciencesPo")}
 }
 

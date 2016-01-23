@@ -31,9 +31,11 @@ geary(x)
 geary(20:50)
 
 y = c(0.269, 0.357, 0.2, 0.221, 0.275, 0.277, 0.253, 0.127, 0.246)
-qqnorm(y)
+
+stats::qqnorm(y)
 }
 \author{
 Daniel Marcelino \email{dmarcelino@live.com}
 }
+\keyword{Tests}
 

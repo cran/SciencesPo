@@ -18,6 +18,8 @@ The Jensen-Shannon divergence or distance matrix stores the \eqn{n*(n-1)/2} pair
 n  = 10
 m = matrix(runif(n*10), ncol = 10)
 m = m/rowSums(m)
+
 jensen.shannon(m)
 }
+\keyword{Tests}
 

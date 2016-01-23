@@ -3,11 +3,11 @@
 #'
 #' @description The function provides three features to perform a skewness test, see details below.
 #'
-#'  @param x a numeric vector containing the values whose skewness is to be computed.
-#'  @param na.rm a logical value for \code{na.rm}, default is \code{na.rm=TRUE}.
-#'  @param type an integer between 1 and 3 for selecting the algorithms for computing the skewness, see details below.
+#' @param x a numeric vector containing the values whose skewness is to be computed.
+#' @param na.rm a logical value for \code{na.rm}, default is \code{na.rm=TRUE}.
+#' @param type an integer between 1 and 3 for selecting the algorithms for computing the skewness, see details below.
 #'
-#'  @details The skewness is a measure of symmetry distribution. Intuitively, negative skewness (g_1 < 0) indicates that the mean of the data distribution is less than the median, and the data distribution is left-skewed. Positive skewness (g_1 > 0) indicates that the mean of the data values is larger than the median, and the data distribution is right-skewed. Values of g_1 near zero indicate a symmetric distribution. The skewness function will ignore missing values in \sQuote{x} for its computation purpose. There are several methods to compute skewness, Joanes and Gill (1998) discuss three of the most traditional methods. According to them, \bold{type 3} performs better in non-normal population distribution, whereas in normal-like population distribution type 2 fits better the data. Such difference between the two formulae tend to disappear in large samples.
+#' @details The skewness is a measure of symmetry distribution. Intuitively, negative skewness (g_1 < 0) indicates that the mean of the data distribution is less than the median, and the data distribution is left-skewed. Positive skewness (g_1 > 0) indicates that the mean of the data values is larger than the median, and the data distribution is right-skewed. Values of g_1 near zero indicate a symmetric distribution. The skewness function will ignore missing values in \sQuote{x} for its computation purpose. There are several methods to compute skewness, Joanes and Gill (1998) discuss three of the most traditional methods. According to them, \bold{type 3} performs better in non-normal population distribution, whereas in normal-like population distribution type 2 fits better the data. Such difference between the two formulae tend to disappear in large samples.
 #'  \bold{Type 1:} g_1 = m_3/m_2^(3/2).
 #'
 #' \bold{Type 2:} G_1 = g_1*sqrt(n(n-1))/(n-2).
@@ -29,7 +29,6 @@
 #' skewness(x, type = 3)
 #'
 #' @export
-#'
 #' @importFrom stats sd
 #'
 `skewness` <-
@@ -136,4 +135,112 @@ NULL
     y
   }
 NULL
+
+
+
+#' @title Standard Error of Kurtosis
+#'
+#' @description  Generate the standard error of the kurtosis.
+#' @param x An \R object.
+#' @param na.rm a logical value indicating whether \code{NA}
+#' should be stripped before the computation proceeds.
+#' @export
+#' @rdname stdkurtosis
+stdkurtosis <- function(x, na.rm = TRUE) UseMethod("stdkurtosis")
+
+#' @export
+#' @rdname stdkurtosis
+stdkurtosis.default <- function(x, na.rm = TRUE) {
+  if (!is.numeric(x) && !is.complex(x) && !is.logical(x) && !is.vector(x)) stop ("The argument should be a numeric vector.")
+  if (na.rm) x <- x[!is.na(x)] else if(any(is.na(x))) return(x[FALSE][NA])
+  stdkurtosis <- kurtosis(x)/sqrt(24/length(x))
+  return(stdkurtosis)
+}
+
+#' @export
+#' @rdname stdkurtosis
+stdkurtosis.data.frame <- function(x, na.rm = TRUE) sapply(x, stdkurtosis)
+NULL
+
+
+
+
+#' @title Standard Error of Skewness
+#'
+#' @description  Generate the standard error of the skewness.
+#' @param x An \R object.
+#' @param na.rm a logical value indicating whether \code{NA}
+#' should be stripped before the computation proceeds.
+#' @export
+#' @rdname stdskewness
+stdskewness <- function(x, na.rm = TRUE) UseMethod("stdskewness")
+
+#' @export
+#' @rdname stdskewness
+stdskewness.default <- function(x, na.rm = TRUE) {
+  if (!is.numeric(x) && !is.complex(x) && !is.logical(x) && !is.vector(x)) stop ("The argument should be a numeric vector.")
+  if (na.rm) x <- x[!is.na(x)] else if(any(is.na(x))) return(x[FALSE][NA])
+  stdskewness <- skewness(x)/sqrt(6/length(x))
+  return(stdskewness)
+}
+
+#' @export
+#' @rdname stdskewness
+stdskewness.data.frame <- function(x, na.rm = TRUE) sapply(x, stdskewness)
+NULL
+
+
+
+#' @title Corrected Sum of Squares
+#' @description Computes the corrected sum of squares.
+#' @param x A numeric vector.
+#' @param na.rm A logical value indicating whether \code{NA}
+#' values should be stripped before the computation proceeds.
+#'
+#' @export
+#' @rdname css
+css <- function(x, na.rm = TRUE) UseMethod("css")
+
+#' @export
+#' @rdname css
+css.default <- function(x, na.rm = TRUE) {
+  if (!is.numeric(x) && !is.complex(x) && !is.logical(x) && !is.vector(x)) stop ("The argument should be a numeric vector.")
+  if (na.rm) x <- x[!is.na(x)] else if(any(is.na(x))) return(x[FALSE][NA])
+  css <- sum(x**2) - ((sum(x)**2)/length(x))
+  return(css)
+}
+#' @export
+#' @rdname css
+css.data.frame <- function(x, na.rm = TRUE) sapply(x, css)
+NULL
+
+
+
+
+#' @title Uncorrected Sum of Squares
+#' @description Generate the uncorrected sum of squares.
+#' @param x An \R object.
+#' @param na.rm A logical value indicating whether \code{NA}
+#' should be stripped before the computation proceeds.
+#'
+#' @export
+#' @rdname ucss
+ucss <- function(x, na.rm = TRUE) UseMethod("ucss")
+
+
+#' @export
+#' @rdname ucss
+ucss.default <- function(x, na.rm = TRUE) {
+  if (!is.numeric(x) && !is.complex(x) && !is.logical(x) && !is.vector(x)) stop ("The argument should be a numeric vector.")
+  if (na.rm) x <- x[!is.na(x)] else if(any(is.na(x))) return(x[FALSE][NA])
+  ucss <- sum(x**2)
+  return(ucss)
+}
+
+#' @export
+#' @rdname ucss
+ucss.data.frame <- function(x, na.rm = TRUE) sapply(x, ucss)
+NULL
+
+
 

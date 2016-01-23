@@ -2,17 +2,21 @@
 % Please edit documentation in R/electoralTool.R
 \name{farina}
 \alias{farina}
-\title{Farina index}
+\title{Farina Index}
 \usage{
-farina(v, s)
+farina(v, s, ...)
+
+farina(v, s, ...)
 }
 \arguments{
-\item{v}{A vector containing the votes for each political party.}
+\item{v}{A numeric vector of data values for votes each political party obtained.}
 
-\item{s}{A vector containing the election outcome as seats.}
+\item{s}{A numeric vector of data values for seats each political party obtained, the election outcome as seats.}
+
+\item{\dots}{Additional arguements (currently ignored)}
 }
 \value{
-A single score given the vector of votes and the vector for seats.
+A single score given the votes each party received and seats obtained.
 }
 \description{
 Calculates the Farina index also referred to as the cosine proportionality score based on a vector of votes and a vector for the electoral outcome.
@@ -29,5 +33,8 @@ Daniel Marcelino \email{dmarcelino@live.com}
 }
 \references{
 Koppel, M., and A. Diskin. (2009) Measuring disproportionality, volatility and malapportionment: axiomatization and solutions. Social Choice and Welfare 33, no. 2: 281-286.
+}
+\seealso{
+\code{\link{cox.shugart}}, \code{\link{inv.cox.shugart}}, \code{\link{politicalDiversity}}, \code{\link{grofman}}, \code{\link{gallagher}},  \code{\link{lijphart}}. For more details see the Indices vignette: \code{vignette("Indices", package = "SciencesPo")}.
 }
 

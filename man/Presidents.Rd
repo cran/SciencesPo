@@ -5,18 +5,18 @@
 \name{Presidents}
 \alias{Presidents}
 \title{The Measure of US Presidents}
-\format{This data.frame contains 57 rows in the following 11 variables.}
+\format{A \code{data.frame} object with \Sexpr{ncol(SciencesPo::Presidents)} variables and \Sexpr{nrow(SciencesPo::Presidents)} observations.}
 \source{
 US Presidents: \url{http://www.jimwegryn.com/Names/Presidents.php}
-Inside Gov. \url{http://us-presidents.insidegov.com}.
-Wikipedia: \url{http://en.wikipedia.org/wiki/United_States_presidential_election,_2012}
+Inside Gov. \url{http://www.us-presidents.insidegov.com}.
+Wikipedia: \url{http://en.wikipedia.org/wiki/United_States_presidential_election,_2012}.
 Wikipedia:\url{http://en.wikipedia.org/wiki/Heights_of_presidents_and_presidential_candidates_of_the_United_States}.
 }
 \usage{
 data(Presidents)
 }
 \description{
-The US presidents and their main opponents' heights (cm).
+The US presidents and their main opponents' heights (cm). This dataset contains the following columns:
 
 \itemize{
 \item election The election year.

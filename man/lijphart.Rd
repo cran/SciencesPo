@@ -2,28 +2,36 @@
 % Please edit documentation in R/electoralTool.R
 \name{lijphart}
 \alias{lijphart}
-\title{Lijphart index of proportionality}
+\title{Lijphart Index of Proportionality}
 \usage{
-lijphart(v, s)
+lijphart(v, s, ...)
+
+lijphart(v, s, ...)
 }
 \arguments{
-\item{v}{A vector containing the votes for each political party.}
+\item{v}{A numeric vector of data values for votes each political party obtained.}
 
-\item{s}{A vector containing the election outcome as seats.}
+\item{s}{A numeric vector of data values for seats each political party obtained, the election outcome as seats.}
+
+\item{\dots}{Additional arguements (currently ignored)}
 }
 \value{
-A single score given the vector of votes and the vector for seats.
+A single score given the votes each party received and seats obtained.
 }
 \description{
 Calculates the Lijphart index of proportionality based on a vector of votes and a vector for the electoral outcome.
 }
-\author{
-Daniel Marcelino \email{dmarcelino@live.com}
-
+\examples{
 # 2012 Quebec provincial election:
 pvotes = c(PQ=31.95, Lib=31.20, CAQ=27.05,QS=6.03,Option=1.89, Other=1.88)
 pseats = c(PQ=54, Lib=50, CAQ=19, QS=2, Option=0, Other=0)
 
 lijphart(pvotes, pseats)
+}
+\author{
+Daniel Marcelino \email{dmarcelino@live.com}
+}
+\seealso{
+\code{\link{cox.shugart}}, \code{\link{inv.cox.shugart}}, \code{\link{politicalDiversity}}, \code{\link{grofman}}, \code{\link{gallagher}},  \code{\link{farina}}. For more details see the Indices vignette: \code{vignette("Indices", package = "SciencesPo")}
 }
 

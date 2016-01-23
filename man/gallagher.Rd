@@ -2,17 +2,21 @@
 % Please edit documentation in R/electoralTool.R
 \name{gallagher}
 \alias{gallagher}
-\title{Gallagher index}
+\title{Gallagher Index}
 \usage{
-gallagher(v, s)
+gallagher(v, s, ...)
+
+gallagher(v, s, ...)
 }
 \arguments{
-\item{v}{A vector containing the votes for each political party.}
+\item{v}{A numeric vector of data values for votes each political party obtained.}
 
-\item{s}{A vector containing the election outcome as seats.}
+\item{s}{A numeric vector of data values for seats each political party obtained, the election outcome as seats.}
+
+\item{\dots}{Additional arguements (currently ignored)}
 }
 \value{
-The Gallagher's Representation Score.
+A single score (The Gallagher's Representation Score.) given the votes each party received and seats obtained.
 }
 \description{
 Calculates the Gallagher index of LSq index.
@@ -21,12 +25,6 @@ Calculates the Gallagher index of LSq index.
 The representation score is calculated as: sqrt(sum((Z-R)^2)/2).
 }
 \examples{
-# 2005 UK General Election
-pvotes = c(Lab=35.20, Cons=32.40, Lib=22, DUP=0.90,
-SNP=1.50, Sinn.Fein=0.60, Plaid=0.60, SDLP=0.50, UUP=0.50,
-Ind=0.50, Respect=0.30, Health=0.10, Speaker=0.10, Others=4.80)
-seats = c(385,198, 62, 9,6,5,3,3,1,1,1,1,1,0)/676
-
 # 2012 Queensland state elecion
 pvotes= c(49.65, 26.66, 11.5, 7.53, 3.16, 1.47)
 pseats = c(87.64, 7.87, 2.25, 0.00, 2.25, 0.00)
@@ -38,5 +36,8 @@ Daniel Marcelino \email{dmarcelino@live.com}
 }
 \references{
 Gallagher, M. (1991) Proportionality, disproportionality and electoral systems. Electoral Studies 10(1):33-51.
+}
+\seealso{
+\code{\link{cox.shugart}}, \code{\link{inv.cox.shugart}}, \code{\link{politicalDiversity}}, \code{\link{grofman}}, \code{\link{farina}},  \code{\link{lijphart}}. For more details see the Indices vignette: \code{vignette("Indices", package = "SciencesPo")}
 }
 

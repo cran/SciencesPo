@@ -1,10 +1,14 @@
 #' @encoding UTF-8
 #' @title  Create k random permutations of a vector
-#' @details  should be used only for length(input)! >> k
-#' @param input vector to be permutated.
-#' @param k number of permutations.
-#' @keywords Sampling
-#' @examples permutate(input=1:5, k=5)
+#' @description Creates a k random permutation of a vector.
+#' @details should be used only for length(input)! >> k
+#' @param input A vector to be permutated.
+#' @param k number of permutations to be conducted.
+#' @author Daniel Marcelino, \email{dmarcelino@@live.com}.
+#' @keywords Sampling, Manipulation
+#' @examples
+#' # row wise permutations
+#' permutate(input=1:5, k=5)
 #' @export
 permutate <- function(input,k){
   n <- length(input)
@@ -19,7 +23,7 @@ permutate <- function(input,k){
       inserted <- inserted+1
     }
   }
-  mat
+  return(mat)
 }
 NULL
 
@@ -32,6 +36,6 @@ NULL
   } else {
     denominator <- 0
   }
-  exp(numerator-denominator)
+ return(exp(numerator-denominator))
 }
 NULL
