@@ -1,45 +1,46 @@
 ## ----highestAverages1, message=FALSE, comment=NA-------------------------
-library("SciencesPo")
+library("SciencesPo", quietly = TRUE)
 
 # The d'Hondt will give the same results as Jefferson's method
-highestAverages(parties=names(lijphart),
+HighestAverages(parties=names(lijphart),
                 votes=lijphart,
                 seats = 6, 
                 method = "dh") 
 
 ## ----highestAverages2, echo=TRUE, message=FALSE, comment=NA--------------
 # The Sainte-Laguë will give the same results as the Webster's method (wb)
-highestAverages(parties=names(lijphart),
-                votes=lijphart,
+
+HighestAverages(parties=names(lijphart),
+            votes=lijphart,
                 seats = 6,
                 method = "sl") 
 
 ## ----highestAverages3, echo=TRUE, message=FALSE, comment=NA--------------
-highestAverages(parties=names(lijphart),
+HighestAverages(parties=names(lijphart),
                 votes=lijphart, 
                 seats = 6,
                 method = "msl") 
 
 ## ----highestAverages4, echo=TRUE, message=FALSE, comment=NA--------------
-highestAverages(parties=names(lijphart), 
+HighestAverages(parties=names(lijphart), 
                 votes=lijphart, 
                 seats = 6, 
                 method = "danish") 
 
 ## ----highestAverages5, echo=TRUE, message=FALSE, comment=NA--------------
-highestAverages(parties=names(lijphart),
+HighestAverages(parties=names(lijphart),
                 votes=lijphart, 
                 seats = 6, 
                 method = "hsl") 
 
 ## ----highestAverages6, echo=TRUE, message=FALSE, comment=NA--------------
-highestAverages(parties=names(lijphart),
+HighestAverages(parties=names(lijphart),
                 votes=lijphart, 
                 seats = 6, 
                 method = "wb") 
 
 ## ----highestAverages7, echo=TRUE, message=FALSE, comment=NA--------------
-highestAverages(parties=names(lijphart),
+HighestAverages(parties=names(lijphart),
                 votes=lijphart, 
                 seats = 6, 
                 method = "imperiali") 
@@ -49,13 +50,13 @@ Bruges=c("CD&V/N-VA"=32092, "SP.A/Spirit"=20028,
          "Flemish Interest"=13408, "Open VLD/Vivant"=9520,
          "Green!"=5328, "Other"=2207)
 
-highestAverages(parties=names(Bruges),
+HighestAverages(parties=names(Bruges),
                 votes=Bruges, 
                 seats = 47,
                 method = "imperiali") 
 
 ## ----highestAverages9, echo=TRUE, message=FALSE, comment=NA--------------
-highestAverages(parties=names(lijphart),
+HighestAverages(parties=names(lijphart),
                 votes=lijphart, 
                 seats = 6, method = "hh") 
 
@@ -63,50 +64,55 @@ highestAverages(parties=names(lijphart),
 
 const <- c("A"=100, "B"=150,"C"=300, "D"=400, "E"=50)
 
-highestAverages(parties=names(const),
+HighestAverages(parties=names(const),
                 votes=const,
                 seats = 3, method = "dh",
                 threshold = 7/100) 
 
 ## ----Valencia, echo=TRUE, message=FALSE, comment=NA----------------------
 # Valencia returned 15 members
-highestAverages(parties=names(Valencia),
+HighestAverages(parties=names(Valencia),
                 votes=Valencia, 
                 seats=15, method = "dh",
                 threshold = 3/100)
 
-## ----largestRemainders1, eval=FALSE, echo=TRUE, message=FALSE, comment=NA----
-#  largestRemainders(parties=names(lijphart),
-#                    votes=lijphart,
-#                    seats = 8, method = "hare")
+## ----largestRemainders1, echo=TRUE, message=FALSE, comment=NA------------
+LargestRemainders(parties=names(lijphart),
+                  votes=lijphart, 
+                  seats = 8, method = "hare") 
 
-## ----largestRemainders2, eval=FALSE, echo=TRUE, message=FALSE, comment=NA----
-#  largestRemainders(parties=names(lijphart),
-#                    votes=lijphart,
-#                    seats = 8, method = "droop")
+## ----largestRemainders2, echo=TRUE, message=FALSE, comment=NA------------
+LargestRemainders(parties=names(lijphart), 
+                  votes=lijphart, 
+                  seats = 8, method = "droop") 
 
 ## ----largestRemainders3, eval=FALSE, echo=TRUE, message=FALSE, comment=NA----
-#  largestRemainders(parties=names(lijphart),
+#  LargestRemainders(parties=names(lijphart),
 #                    votes=lijphart,
 #                    seats = 8, method = "hagb")
 
-## ----data-Italy, eval=FALSE, echo=TRUE, message=FALSE--------------------
-#  # The 1946 Italian Constituent Assembly election results: parties and unspoilt votes
-#  
-#  Italy = data.frame(party=c("DC", "PSIUP", "PCI", "UDN", "UQ", "PRI",
-#                              "BNL", "PdA", "MIS", "PCd'I", "CDR",
-#                             "PSd'Az", "MUI", "PCS", "PDL", "FDPR"),
-#                     votes=c(8101004, 4758129, 4356686, 1560638,	1211956,
-#                             1003007, 637328, 334748, 171201, 102393,
-#                             97690, 78554, 71021, 51088, 40633, 21853))
+## ----data-Italy, echo=TRUE, message=FALSE, comment=NA--------------------
+# The 1946 Italian Constituent Assembly election results: parties and unspoiled votes
+
+Italy = data.frame(party=c("DC", "PSIUP", "PCI", "UDN", "UQ", "PRI",
+                            "BNL", "PdA", "MIS", "PCd'I", "CDR",
+                           "PSd'Az", "MUI", "PCS", "PDL", "FDPR"),
+                   votes=c(8101004, 4758129, 4356686, 1560638,	1211956,
+                           1003007, 637328, 334748, 171201, 102393,
+                           97690, 78554, 71021, 51088, 40633, 21853))
 
 ## ----largestRemainders4, eval=FALSE, echo=TRUE, message=FALSE, comment=NA----
-#  with(Italy, largestRemainders(parties=party,
+#  with(Italy, LargestRemainders(parties=party,
 #                                votes=votes, seats = 556,
-#                                method = "imperiali.q") )
+#                                method = "imperiali") )
+
+## ----largestRemainders5, eval=FALSE, echo=TRUE, message=FALSE, comment=NA----
+#  with(Italy, LargestRemainders(parties=party,
+#                                votes=votes, seats = 556,
+#                                method = "imperiali.adj") )
 
 ## ----highestAverages11, echo=TRUE, message=FALSE, comment=NA-------------
-mytable = highestAverages(parties=names(Ceara), 
+mytable = HighestAverages(parties=names(Ceara), 
                           votes=Ceara,
                           seats = 42, method = "dh") 
 
@@ -114,113 +120,241 @@ library(knitr)
 
 kable(mytable, align=c("l","c","c"), caption="Outcome under d'Hondt")
 
-## ----largestRemainders5, eval=TRUE, echo=TRUE, message=FALSE, fig.width=7, fig.height=4.5, fig.align="center", fig.cap= "2014 Legislative Election in Ceará (M=42)"----
+## ----highestAverages12, echo=TRUE, message=FALSE, comment=NA, fig.width=6.5, fig.height=4.5, fig.align="center"----
 
-out1 = highestAverages(parties=names(Ceara), votes=Ceara, 
-                seats = 42, method = "dh")
-out2 = highestAverages(parties=names(Ceara), votes=Ceara, 
-                seats = 42, method = "imperiali") 
-out3 = highestAverages(parties=names(Ceara), votes=Ceara, 
-                seats = 42, method = "sl")
+gg <- ggplot()
+gg <- gg +  geom_bar( data = mytable, aes(x = reorder(Party, -Seats), y = Seats, fill = Party), stat = "identity", alpha=.9)
+gg <- gg + geom_label(data = mytable,
+aes(x = reorder(Party, -Seats), y= Seats + 1, label = Seats), hjust = .5)
+gg <- gg + scale_y_continuous(expand = c(0, 0), limits = c(0, 25))
+gg <- gg + scale_fill_party("BRA")
+gg <- gg + labs(list(x = "", y = "# Seats obtained",
+title = "The 2014 elections in the state of Ceará, seats won by party"))
+gg <-  gg + theme_fte(base_size = 10, base_family = "Tahoma")
+gg
 
-# add the method:
-out1$Method = "d'Hondt"
-out2$Method = "imperiali"
-out3$Method = "Saint-Laguë"
+## ----largestRemainders6, echo=TRUE, message=FALSE, comment=NA, fig.width=6.5, fig.height=4.5, fig.align="center", fig.cap= "2014 Legislative Election in Ceará (M=42)"----
+
+out1 = HighestAverages(
+  parties = names(Ceara),
+  votes = Ceara,
+  seats = 42,
+  method = "dh"
+  )
+  out2 = HighestAverages(
+  parties = names(Ceara),
+  votes = Ceara,
+  seats = 42,
+  method = "imperiali"
+  )
+  out3 = HighestAverages(
+  parties = names(Ceara),
+  votes = Ceara,
+  seats = 42,
+  method = "sl"
+  )
+  
+  # add the method:
+  out1$Method = "d'Hondt"
+  out2$Method = "Imperiali"
+  out3$Method = "Saint-Laguë"
+  
+ data <- rbind(out1, out2, out3)
+
+## ----echo=FALSE, message=FALSE, comment=NA, fig.width=7, fig.height=4.5, fig.align="center", fig.cap= "2014 Legislative Election in Ceará (M=42)"----
+  
+  p <- ggplot()
+  p <- p + geom_bar(
+  data = data,
+  aes(
+  x = reorder(Party, -Seats),
+  y = Seats,
+  fill = Method
+  ), 
+  stat = "identity",
+  position = position_dodge()
+  )
+  p <- p + labs(x = "", y = "# Seats obtained", title="The 2014 elections in the state of Ceará seats won by party")
+  p <- p  + scale_fill_pub("fte")
+  p <- p + theme_fte(legend = "top", base_size = 10, base_family = "Tahoma")
+  p  + theme(panel.grid.major.x=element_blank()) 
 
 
-data <- rbind(out1, out2, out3)
-
-p = ggplot(data=data, aes(x=reorder(Party, -Seats), y=Seats, fill=Method)) +
-    geom_bar(stat="identity",position=position_dodge()) +
-   labs(x="", y="Seats")
-p + scale_fill_fte() + 
-  theme_fte(legend = "top") 
-
-## ----largestRemainders6, eval=FALSE, echo=TRUE, message=FALSE, fig.width=7, fig.height=4.5, fig.align="center", fig.cap= "2014 Legislative Election in Ceara (M=42)"----
+## ----largestRemainders7, eval=FALSE, echo=FALSE, message=FALSE, comment=NA----
 #  
-#  #2014 Federal elections, 30 seats to be returned in the state of Parana, Brazil.
+#  # 2014 Federal elections, 30 seats to be returned in the state of Parana, Brazil.
 #  
-#  PR=c("PSDB/DEM/PR/PSC/PTdoB/PP/SD/PSD/PPS"=2601709,
-#       "PT/PDT/PRB/PTN/PCdoB"=1109905,
-#       "PSDC/PEN/PTB/PHS/PMN/PROS"=501148,
-#       "PV/PPL"=280767)
-#  
-#  2014 Federal elections, 70 seats to be returned in the state of Sao Paulo, Brazil.
-#  SP=c("PSDB/DEM/PPS"=5537630, "PT/PCdoB"=3170003,
-#       "PMDB/PROS/PP/PSD"=2384740, "PSOL/PSTU"=462992,
-#       "PSL/PTN/PMN/PTC/PTdoB"=350186, "PHS/PRP"=252205)
-#  
-#  
+#  PR = c(
+#    "PSDB/DEM/PR/PSC/PTdoB/PP/SD/PSD/PPS" = 2601709,
+#    "PT/PDT/PRB/PTN/PCdoB" = 1109905,
+#    "PSDC/PEN/PTB/PHS/PMN/PROS" = 501148,
+#    "PV/PPL" = 280767
+#    )
 
-## ----politicalDiversity1, echo=TRUE, message=FALSE, comment=NA-----------
-# The 2004 presidential election in the US (vote share):
-
-US2004 <- c("Democratic"=0.481, "Republican"=0.509, 
-            "Independent"=0.0038, "Libertarian"=0.0032, 
-            "Constitution"=0.0012, "Green"=0.00096,
-            "Others"=0.00084)
-
-print(US2004)
+## ----largestRemainders8, eval=FALSE, echo=FALSE, message=FALSE, comment=NA----
+#  
+#  # 2014 Federal elections, 70 seats to be returned in the state of Sao Paulo, Brazil.
+#  
+#  SP = c(
+#    "PSDB/DEM/PPS" = 5537630,
+#    "PT/PCdoB" = 3170003,
+#    "PMDB/PROS/PP/PSD" = 2384740,
+#    "PSOL/PSTU" = 462992,
+#    "PSL/PTN/PMN/PTC/PTdoB" = 350186,
+#    "PHS/PRP" = 252205
+#    )
+#  
 
 ## ----politicalDiversity2, echo=TRUE, message=FALSE, comment=NA-----------
-politicalDiversity(US2004); # ENEP (laakso/taagepera) method 
+PoliticalDiversity(US2004); # ENEP (laakso/taagepera) method 
 
 ## ----politicalDiversity3, echo=TRUE, message=FALSE, comment=NA-----------
-politicalDiversity(US2004, index= "golosov");
+
+PoliticalDiversity(US2004, index= "golosov");
 
 ## ----politicalDiversity4, echo=TRUE, message=FALSE, comment=NA-----------
-politicalDiversity(US2004, index= "herfindahl");
 
-## ----Helsinki-election, echo=TRUE, message=FALSE-------------------------
-# Helsinki's 1999
+PoliticalDiversity(US2004, index= "inv.herfindahl");
 
-Helsinki <- data.frame(
-  votes = c(68885, 18343, 86448, 21982, 51587,
-            27227, 8482, 7250, 365, 2734, 1925,
-            475, 1693, 693, 308, 980, 560, 590, 185),
-  seats.SL=c(5, 1, 6, 1, 4, 2, 1, 0, 0, 0, 0, 0, 0, 0,
-             0, 0, 0, 0, 0),
-  seats.dH=c(5, 1, 7, 1, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0,
-             0, 0, 0, 0, 0))
+# Compares to:
+Herfindahl(US2004)
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+# Helsinki's 1999 election:
+Helsinki
+
 
 ## ----politicalDiversity5, echo=TRUE, message=FALSE, comment=NA-----------
-# politicalDiversity(Helsinki$votes); #ENEP Votes
 
-politicalDiversity(Helsinki$seats.SL); #ENP for Saint-Lague
+PoliticalDiversity(Helsinki$votes); #ENP given votes
 
-politicalDiversity(Helsinki$seats.dH); #ENP for D'Hondt
+PoliticalDiversity(Helsinki$seats.SL); #ENP for Saint-Lague 
 
-## ----proportionality1, echo=TRUE, message=FALSE, comment=NA--------------
-with(Queensland, gallagher(pvotes, pseats))
+PoliticalDiversity(Helsinki$seats.dH); #ENP for D'Hondt
 
-with(Quebec, gallagher(pvotes, pseats))
+## ----Queensland, echo=TRUE, message=FALSE, comment=NA--------------------
+# 2012 Queensland state elecion:
+Queensland
 
-## ----proportionality2, echo=TRUE, message=FALSE, comment=NA--------------
-with(Queensland, lijphart(pvotes, pseats))
+## ----Quebec, echo=TRUE, message=FALSE, comment=NA------------------------
+# 2012 Quebec provincial election:
+Quebec
 
-with(Quebec, lijphart(pvotes, pseats))
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
 
-## ----proportionality3, echo=TRUE, message=FALSE, comment=NA--------------
-with(Queensland, grofman(pvotes, pseats))
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "Rae") )
 
-with(Quebec, grofman(pvotes, pseats))
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Rae") )
 
-## ----proportionality4, echo=TRUE, message=FALSE, comment=NA--------------
-with(Queensland, farina(pvotes, pseats))
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
 
-with(Quebec, farina(pvotes, pseats))
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "Loosemore-Hanby") )
 
-## ----proportionality5, echo=TRUE, message=FALSE, comment=NA--------------
-with(Queensland, cox.shugart(pvotes, pseats))
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Loosemore-Hanby") )
 
-with(Quebec, cox.shugart(pvotes, pseats))
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
 
-## ----proportionality6, echo=TRUE, message=FALSE, comment=NA--------------
-with(Queensland, inv.cox.shugart(pvotes, pseats))
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "Gallagher") )
 
-with(Quebec, inv.cox.shugart(pvotes, pseats))
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Gallagher") )
+
+## The inverted version
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "inv.Gallagher") )
 
 ## ----eval=FALSE, echo=FALSE, message=FALSE, comment=NA-------------------
-#  sessionInfo()
+#  
+#  with(Queensland, Proportionality(pvotes, pseats,
+#                       index = "mod.Gallagher") )
+#  
+#  with(Quebec, Proportionality(pvotes, pseats,
+#                       index = "mod.Gallagher") )
+#  
+#  ## The inverted version
+#  with(Quebec, Proportionality(pvotes, pseats,
+#                       index = "mod.inv.Gallagher") )
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "Rose") )
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Rose") )
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "Grofman") )
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Grofman") )
+
+## The inverted version:
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "inv.Grofman") )
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "Lijphart") )
+
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Lijphart") )
+
+
+## The inverted version:
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "invlijphart") )
+
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "Farina") )
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Farina") )
+
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "Cox-Shugart") )
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Cox-Shugart") )
+
+## The inverted version:
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "inv.Cox-Shugart") )
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "Sainte-Lague") )
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Sainte-Lague") )
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "inv.Sainte-Lague") )
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+with(Queensland, Proportionality(pvotes, pseats, 
+                     index = "DHondt") )
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "DHondt") )
+
+## ----echo=FALSE, message=FALSE, comment=NA-------------------------------
+sessionInfo()
 

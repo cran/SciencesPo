@@ -1,60 +1,125 @@
+## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
+#  install.packages("SciencesPo", dependencies = c("Depends", "Suggests"))
+
+## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
+#  library('SciencesPo')
+#  
+#  ## Do things ...
+#  
+#  detach('package:SciencesPo', unload = TRUE)
+
 ## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
-library(SciencesPo)
+library("SciencesPo")
 
-
-## Do things 
-
-
-detach("package:SciencesPo", unload=TRUE)
-
-
-#You can also use the unloadNamespace command,
-
-unloadNamespace("SciencesPo")
-
-
-## ----echo=TRUE, message=FALSE--------------------------------------------
-help.search('bar.plot')
-
-
-help.search('twoway', package = 'SciencesPo')
-
-## ----echo=TRUE, message=FALSE--------------------------------------------
 vignette(package = "SciencesPo")
 
-## ----echo=TRUE, message=FALSE--------------------------------------------
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
 data(package = "SciencesPo")
 
-## ----echo=FALSE, message=FALSE-------------------------------------------
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+help.search("D'Hondt", package = 'SciencesPo')
+
+## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
+#  RSiteSearch("D'Hondt")
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+data("titanic")
+Describe(titanic) 
+
+## ----eval=FALSE, echo=FALSE, message=FALSE, comment=NA-------------------
+#  #' The function mcnemar.test can conduct McNemar’s test for matched pairs. For ex- ample, for Table 11.1,
+#  ratings <- matrix(c(175, 16, 54, 188), ncol=2, byrow=TRUE,
+#                    dimnames = list("2004 Election" = c("Democrat", "Republican"), "2008 Election" = c("Democrat", "Republican")))
+#  mcnemar.test(ratings, correct=FALSE)
+
+## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
+#  with(titanic, Crosstable(SURVIVED))
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+Freq(titanic, SURVIVED) 
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+with(titanic, Crosstable(SEX, CLASS))
+
+## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
+#  Crosstable(titanic, SEX, CLASS, column = FALSE)
+
+## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
+#  Crosstable(titanic, SEX, CLASS, SURVIVED)
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+with(titanic, Crosstable(SEX, SURVIVED, fisher=TRUE) )
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+with(titanic, Crosstable(SEX, CLASS, SURVIVED, chisq = TRUE))
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+attach(stature)
+
+# Type 1:
+Skewness(winner.height, type = 1)
+# Type 2 
+Skewness(winner.height, type = 2)
+# Type 3, the default
+Skewness(winner.height)
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+attach(stature)
+
+# Type 1:
+Kurtosis(winner.height, type = 1)
+# Type 1:
+Kurtosis(winner.height, type = 2)
+# Type 3, the default
+Kurtosis(winner.height)
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+x <- sample (10, replace = TRUE)
+
+Mode(x)
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+attach(stature)
+
+Winsorize(winner.height)
+
+# replacing 35 outlier elements we get same stature values: 
+Winsorize(winner.height, k=35)
+
+Winsorize(opponent.height, k=35)
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+attach(stature)
+
+AAD(winner.height) 
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+data(religiosity)
+
+Label(religiosity$Religiosity) <- "Religiosity index"
+
+## ----echo=FALSE, message=FALSE, comment=NA-------------------------------
+
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
 require(SciencesPo)
 
-set.seed(51)
- w <-sample(4,10, TRUE)
- x <- sample(10, 1000, replace=TRUE, prob=w)
- 
-skewness(x, type = 1);
-kurtosis(x, type = 1);
-skewness(x); # Type 2 is the default 
-kurtosis(x); # Type 2 is the default 
-skewness(x, type = 3);
-kurtosis(x, type = 3);
+table(iris$Species)
 
+iris$Species <- Recode(iris$Species, "versicolor", 2)
 
-## ----echo=FALSE, message=FALSE-------------------------------------------
-aad(pres) 
+table(iris$Species)
 
-
-winsorize(pres)
-
-## ----echo=FALSE, message=FALSE-------------------------------------------
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
 require(SciencesPo)
 str(iris)
 
-iris_2 = safe.chars(iris)
+iris_2 = Safechars(iris)
 
 str(iris_2)
 
-## ----echo=TRUE, message=FALSE--------------------------------------------
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
 require(SciencesPo)
 
 mylevels <- c('Strongly Disagree', 
@@ -63,214 +128,519 @@ mylevels <- c('Strongly Disagree',
               'Agree', 
               'Strongly Agree')
 
+# attibute some oredered factors 
 myvar <- factor(sample(mylevels[1:5], 10, replace=TRUE))
 
-## ----echo=TRUE, message=FALSE--------------------------------------------
 unclass(myvar) # testing the order
 
-## ----echo=TRUE, message=FALSE--------------------------------------------
-destring(myvar) 
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+Destring(myvar) 
+
+## ----echo=FALSE, message=FALSE, comment=NA-------------------------------
+# Smithson and Verkuilen approach
+(y = Normalize(x, method="SV"))
 
 ## ----echo=TRUE, message=FALSE--------------------------------------------
- (x = seq(0, 1, by=.1))
- rounded(x) 
+x <- as.double(c(0.1, 1, 10, 100, 1000, 10000))
 
-## ----one-way, eval=FALSE, echo=TRUE, message=FALSE, comment=NA-----------
-#  CrossTabs(titanic$SURVIVED)
+Formatted(x) 
 
-## ----Freq, echo=TRUE, message=FALSE, comment=NA--------------------------
-Frequency(titanic, SURVIVED) 
+Formatted(x, "BRL")
 
-## ----two-way, echo=TRUE, message=FALSE-----------------------------------
-crosstable(titanic, SEX, CLASS, SURVIVED) 
+p = c(0.25, 25, 50)
 
-## ----politicalDiversity1, echo=TRUE, message=FALSE-----------------------
-library("SciencesPo")
+Formatted(p, "Perc", flag="+")
 
-# The 1980 presidential election in the US (vote share):
+Formatted(p, "Perc", decimal.mark=",")
 
-(US1980 <- c("Democratic"=0.410, "Republican"=0.507,
-              "Independent"=0.066, "Libertarian"=0.011,
-              "Citizens"=0.003, "Others"=0.003));
+## ----echo=FALSE, message=FALSE, comment=NA-------------------------------
 
-politicalDiversity(US1980); # ENEP (laakso/taagepera) method 
+ dt <- data.frame(
+ Z = sample(LETTERS,5),
+ X = sample(1:5),
+ Y = sample(c("yes", "no"), 5, replace = TRUE) )
 
-politicalDiversity(US1980, index= "golosov");
-
-
-## ----Helsinki-election, echo=TRUE, message=FALSE-------------------------
-# Helsinki's 1999
-
-Helsinki <- data.frame(votes = c(68885, 18343, 86448, 21982, 51587,
-                                 27227, 8482, 7250, 365, 2734, 1925,
-                                 475, 1693, 693, 308, 980, 560, 590, 185),
-                       seats.SL=c(5, 1, 6, 1, 4, 2, 1, 0, 0, 0, 0, 0, 0, 0,
-                                  0, 0, 0, 0, 0),
-                       seats.dH=c(5, 1, 7, 1, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0,
-                                  0, 0, 0, 0, 0))
+dt;
 
 ## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
-# politicalDiversity(Helsinki$votes); #ENEP Votes
+dt %>% Anonymize()
 
-politicalDiversity(Helsinki$seats.SL); #ENP for Saint-Lague
 
-politicalDiversity(Helsinki$seats.dH); #ENP for D'Hondt
+## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
+#  normalpdf(x=1.2, mu=0, sigma=1)
+
+## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
+#  normalcdf(lower=-1.96, upper=1.96, mu=0, sigma=1)
+
+## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
+#  invnormal(area=0.35, mu=0, sigma=1)
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+Describe(sims)
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+# compute the margins: Aecio minus Marina
+margins <- sims[,2] - sims[,3];
+
+# What is the mean of the margins
+# posterior mean estimate:
+Mean(margins); 
+
+# posterior standard deviation:
+SD(margins); 
+
+# 90% credible interval:
+quantile(margins, probs = c(0.025, 0.975)); 
+
+# posterior probability of a positive margin (Aécio over Marina):
+Mean(margins > 0); 
+
+
+## ----US-election, echo=FALSE, message=FALSE, comment=NA------------------
+
+US1980 <- c("Democratic"=0.410, "Republican"=0.507,
+              "Independent"=0.066, "Libertarian"=0.011,
+              "Citizens"=0.003, "Others"=0.003);
+
+## ----echo=FALSE, message=FALSE, comment=NA-------------------------------
+US1980
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+PoliticalDiversity(US1980, index = "laakso/taagepera");
+
+PoliticalDiversity(US1980, index = "golosov");
+
+
+## ----Helsinki-election, echo=FALSE, message=FALSE, comment=NA------------
+# Helsinki's 1999
+
+Helsinki <- data.frame(
+  votes = c(68885, 18343, 86448, 21982, 51587,
+            27227, 8482, 7250, 365, 2734, 1925,
+            475, 1693, 693, 308, 980, 560, 590, 185),
+  seats.SL=c(5, 1, 6, 1, 4, 2, 1, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0),
+ seats.dH=c(5, 1, 7, 1, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+           0, 0, 0, 0, 0))
+
+print(Helsinki)
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+# ENEP defaults (laakso/taagepera) method 
+
+with(Helsinki, PoliticalDiversity(votes)); #ENEP Votes
+
+with(Helsinki, PoliticalDiversity(seats.SL)); #ENP for Saint-Lague
+
+with(Helsinki, PoliticalDiversity(seats.dH)); #ENP for D'Hondt
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Rae") )
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Loosemore-Hanby") )
+
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+
+with(Quebec, Proportionality(pvotes, pseats, 
+                     index = "Gallagher") )
 
 ## ----highestAverages1, echo=TRUE, message=FALSE, comment=NA--------------
-highestAverages(parties=names(Ceara), votes=Ceara,
+HighestAverages(parties=names(Ceara), votes=Ceara,
                 seats = 42, method = "dh") 
 
 ## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
-highestAverages(parties=names(Ceara), votes=Ceara,
+HighestAverages(parties=names(Ceara), votes=Ceara,
                 seats = 42, method = "sl") 
 
 ## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
-highestAverages(parties=names(Ceara), votes=Ceara, 
-                seats = 42, method = "hh") 
-
-## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
-highestAverages(parties=names(Ceara), votes=Ceara, 
-                seats = 42, method = "imperiali") 
-
-## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
-highestAverages(parties=names(Ceara), votes=Ceara,
+HighestAverages(parties=names(Ceara), votes=Ceara,
                seats = 42, method = "dh", threshold = 5/100) 
 
 ## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
-#  largestRemainders(parties=names(Ceara), votes=Ceara,
+#  LargestRemainders(parties=names(Ceara), votes=Ceara,
 #                  seats = 42, method = "hare")
 
 ## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
-#  largestRemainders(parties=names(Ceara), votes=Ceara,
+#  LargestRemainders(parties=names(Ceara), votes=Ceara,
 #                  seats = 42, method = "droop")
 
-## ----data-Italy, eval=FALSE, echo=TRUE, message=FALSE--------------------
-#  
-#  # The 1946 Italian Constituent Assembly election results: parties and unspoilt votes
-#  
-#  Italy = data.frame(party=c("DC", "PSIUP", "PCI", "UDN", "UQ", "PRI",
-#                              "BNL", "PdA", "MIS", "PCd'I", "CDR",
-#                             "PSd'Az", "MUI", "PCS", "PDL", "FDPR"),
-#                     votes=c(8101004, 4758129, 4356686, 1560638,	1211956,
-#                             1003007, 637328, 334748, 171201, 102393,
-#                             97690, 78554, 71021, 51088, 40633, 21853))
-
-## ----eval=FALSE, echo=TRUE, message=FALSE, comment=NA--------------------
-#  with(Italy, largestRemainders(parties=party, votes=votes,
-#                  seats = 556, method = "imperiali.q") )
-
 ## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
-mytable = highestAverages(parties=names(Ceara), votes=Ceara, 
+mytable = HighestAverages(parties=names(Ceara), votes=Ceara, 
                 seats = 42, method = "dh") 
 
 library(knitr)
 
 kable(mytable, align=c("l","c","c"))
 
-## ----echo=TRUE, message=FALSE, fig.width=4.5, fig.height=4.5, fig.align="center", fig.cap= "2014 Legislative Election in Ceara (M=42)"----
+## ----echo=TRUE, message=FALSE, fig.width=4.5, fig.height=4, fig.align="center", fig.cap= "2014 Legislative Election in Ceara (M=42)"----
 
-mytable = highestAverages(parties=names(Ceara), votes=Ceara, 
+mytable = HighestAverages(parties=names(Ceara), votes=Ceara, 
                 seats = 42, method = "dh") 
 
 p <- ggplot(mytable, aes(x=reorder(Party, Seats), y=Seats)) + 
-  geom_bar(position="dodge", stat = "identity") +
-  coord_flip() + labs(x="", y="# Seats")
-p + theme_grey() 
+  geom_lollipop() + coord_flip() + labs(x=NULL, y="# Seats")
+p + theme_538() + theme(panel.grid.major.y = element_blank())
 
-## ----eval=TRUE-----------------------------------------------------------
-detach("package:SciencesPo")
+## ----echo=FALSE, message=FALSE, comment=NA-------------------------------
+x <- c(778, 815, 857, 888, 925, 930, 965, 990, 1012)
 
-ggplot(mtcars, aes(mpg, disp,color=factor(carb),size=hp)) + geom_point(alpha=0.7) + labs(title="Bubble Plot") + scale_size_continuous(range = c(3,10))
+# compute weight values
+wgt <- runif(n=length(x))
 
-qplot(1:3, 1:3)
+# compute the lorenz with especific weights
+Lorenz(x, wgt)
 
-## ----eval=TRUE-----------------------------------------------------------
-require(SciencesPo)
-qplot(1:3, 1:3)
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+x <- c(778, 815, 857, 888, 925, 930, 965, 990, 1012)
 
-## ----echo=FALSE, message=FALSE-------------------------------------------
-require(SciencesPo)
-theme_set(theme_pub(font_size=12)) # default fontsize doesn't work well for online viewing
-qplot(1:3, 1:3)
+wgt <- runif(n=length(x))
 
-## ----echo=FALSE, message=FALSE-------------------------------------------
-require(SciencesPo)
-# "Verdana", "serif" and "sans" are also high-readability fonts
-theme_set(theme_pub(font_size=12, font_family = "Consolas")) 
-qplot(1:3, 1:3)
+Gini(x, wgt)
 
-## ----echo=FALSE, message=FALSE-------------------------------------------
-prefs <- theme(axis.text = element_text(size=14, colour=NULL))
+## ----echo=TRUE, message=FALSE, comment=NA--------------------------------
+x <- c(778, 815, 857, 888, 925, 930, 965, 990, 1012)
 
-qplot(1:3, 1:3) + prefs
+Atkinson(x, epsilon = 0.5)
 
-## ----echo=FALSE, message=FALSE-------------------------------------------
-# Modifying a theme function
-themeMod <- theme_gray() +
-  theme(text = element_text(family = "Times", colour = "blue", size = 14))
+## ----echo=TRUE, message=FALSE, comment=NA, fig.align="center", fig.width=5, fig.height=3.5----
 
-ggplot(mpg, aes(x = cty, y = hwy, colour = factor(cyl))) + 
-   geom_point(size = 2.5)
+PreviewTheme() + theme_grey()
 
-## ----echo=FALSE, message=FALSE-------------------------------------------
-# Only change the 'colour' property of theme element 'text'
+## ----echo=TRUE, message=FALSE, comment=NA, fig.align="center", fig.width=5, fig.height=3.5----
+# detach("package:SciencesPo", unload = TRUE)
 
-mytheme1 <- theme_grey() + theme(text = element_text(colour="red"))
-mytheme1$text
+gg <- ggplot(mtcars, aes(mpg, disp,color=factor(carb),size=hp)) 
+gg <- gg + geom_point(alpha=0.7) + labs(title="Bubble Plot")
+gg <- gg +scale_size_continuous(range = c(3,8)) 
+gg 
 
-## ----echo=FALSE, message=FALSE-------------------------------------------
-# Replace the 'text' element entirely
-mytheme2 <- theme_grey() %+replace% theme(text = element_text(colour="red"))
-mytheme2$text
 
-## ----eval=FALSE, message=FALSE-------------------------------------------
-#  plot.mpg + background_grid(major = "xy", minor = "none")
+## ----echo=TRUE, message=FALSE, comment=NA, fig.align="center", fig.width=5, fig.height=3.5----
+library(SciencesPo)
 
-## ----eval=FALSE, message=FALSE, fig.width=7, fig.height=5----------------
+gg <- ggplot(mtcars, aes(mpg, disp,color=factor(carb),size=hp)) 
+gg <- gg + geom_point(alpha=0.7) + labs(title="Bubble Plot")
+gg <- gg +scale_size_continuous(range = c(3,8)) 
+gg <- gg + theme_blank()
+gg
+
+## ----echo=TRUE, message=FALSE, comment=NA, fig.align="center", fig.width=5, fig.height=3.5----
+library(SciencesPo)
+
+gg <- ggplot(mtcars, aes(mpg, disp,color=factor(carb),size=hp)) 
+gg <- gg + geom_point(alpha=0.7) + labs(title="Bubble Plot")
+gg <- gg +scale_size_continuous(range = c(3,8)) 
+gg <- gg + theme_pub()
+gg
+
+## ----echo=TRUE, message=FALSE, comment=NA, fig.align="center", fig.width=5, fig.height=3.5----
+library(SciencesPo)
+
+gg <- ggplot(mtcars, aes(mpg, disp,color=factor(carb),size=hp)) 
+gg <- gg + geom_point(alpha=0.7) + labs(title="Bubble Plot")
+gg <- gg +scale_size_continuous(range = c(3,8)) 
+gg <- gg + theme_538()
+gg
+
+## ----echo=TRUE, message=FALSE, comment=NA, fig.align="center", fig.width=5, fig.height=3.5----
+library(SciencesPo)
+
+gg <- ggplot(mtcars, aes(mpg, disp,color=factor(carb),size=hp)) 
+gg <- gg + geom_point(alpha=0.7) + labs(title="Bubble Plot")
+gg <- gg +scale_size_continuous(range = c(3,8)) 
+gg <- gg + theme_darkside()
+gg
+
+## ----echo=FALSE, message=FALSE, comment=NA, fig.align="center", fig.width=6, fig.height=4----
+
+set.seed(1)
+test <- data.frame(
+  org = rep(c("Coalition", "Opposition", "Right", "Center", "Left"), 3),
+  level = rep(c("Government", "Opposition", rep("Parties", 3)), 3),
+  group = rep("Opposition",15),
+  election = rep(c("2006", "2010", "2014"),5),
+  obsAvg = runif(15, 1, 4)
+)
+
+gg <- ggplot(test, aes(x = reorder(org, -as.numeric(level)), y = obsAvg, fill = level))
+gg <- gg + geom_bar(aes(alpha=election), stat = "identity", position = "dodge")
+gg <- gg + scale_fill_manual(values = c("#E69F00", "#56B4E9", "#009E73"))
+gg <- gg + scale_alpha_manual(values = c(.5, .75, 1), guide = FALSE)
+gg <- gg + labs(title = "Average Score by Election", y = "", x = "", fill = "Group")
+gg <- gg + geom_text(aes(label = round(obsAvg,1), group=election), vjust = -.3, size = 4, fontface="bold", position = position_dodge(width = .9))
+gg <- gg + scale_y_continuous(limits = c(0,5), expand = c(0,0))
+gg <- gg + theme_538(legend="bottom", base_size = 12)
+gg
+
+## ----eval=FALSE, echo=FALSE, message=FALSE,  comment=NA, warning=FALSE----
 #  
-#  plot.iris <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
-#    geom_point() + facet_grid(. ~ Species) + stat_smooth(method = "lm") +
-#    background_grid(major = 'y', minor = "none") + # add thin horizontal lines
-#    panel_border() # and a border around each panel
-#  # plot.mpg and plot.diamonds were defined earlier
-#  ggdraw() +
-#    draw_plot(plot.iris, 0, .5, 1, .5) +
-#    draw_plot(plot.mpg, 0, 0, .5, .5) +
-#    draw_plot_label(c("A", "B", "C"), c(0, 0, 0.5), c(1, 0.5, 0.5), size = 15)
+#  library(scales)
+#  library(grid)
+#  library(ggplot2)
+#  library(plyr)
+#  
+#  df <- read.table(text = "year, district.id, party, seats, ideology
+#  2012, 127, Stranka Pravde I Razvoja Bosne I Hercegovine, 1, p
+#  2012, 127, SBB, 3, p
+#  2008, 127, SDA, 13, p
+#  2004, 127, SDA, 14, p
+#  2008, 127, HDZ, 1, c
+#  2008, 127, Stranka Pravde I Razvoja Bosne I Hercegovine, 1, p
+#  2012, 127, SzBiH, 4, p
+#  2000, 127, SDP, 8, m
+#  2012, 127, NSRzB, 2, m
+#  2012, 127, SDU, 1, p
+#  2000, 127, SDA-SBiH, 15, p
+#  2008, 127, SDP, 5, m
+#  2008, 127, NSRzB, 1, m
+#  2008, 127, LDS-SDU, 2, m
+#  2000, 127, liberali-Bih-Gds-Bih, 1, m
+#  2000, 127, NHI, 1, c
+#  1997, 127, SDP, 3, m
+#  2012, 127, SDP, 6, m
+#  2004, 127, SzBiH, 5, p
+#  1997, 127, BPS, 9, p
+#  2000, 127, BPS, 3, p
+#  2008, 127, SzBiH, 4, p
+#  1997, 127, HDZ, 5, c
+#  2000, 127, HDZ, 2, c
+#  2012, 127, SDA, 10, p
+#  2004, 127, SDP, 6, m
+#  1997, 127, SDA-SBiH-Liberali-GDS, 13, p", sep=",", header = TRUE)
+#  
+#  df <- arrange(df, year, ideology, party)
+#  
+#  # conservative parties blue
+#  cons <- ggplot(data = df[df$ideology == "c", ],
+#                 aes(x = as.factor(year),
+#                     y = seats,
+#                     fill = party)) +
+#    geom_bar(stat = "identity", position = "fill") +
+#    scale_fill_manual(values = blue, name = "Conservative parties" )
+#  
+#  # progressive parties green
+#  prog <- ggplot(data = df[df$ideology == "p", ],
+#                 aes(x = as.factor(year),
+#                     y = seats,
+#                     fill = party)) +
+#    geom_bar(stat = "identity", position = "fill") +
+#    scale_fill_manual(values = green, name = "Progressive parties" )
+#  
+#  # moderate parties red
+#  mod <- ggplot(data = df[df$ideology == "m", ],
+#                aes(x = as.factor(year),
+#                    y = seats,
+#                    fill = party)) +
+#    geom_bar(stat = "identity", position = "fill") +
+#    scale_fill_manual(values = red, name = "Moderate parties" )
 
-## ----eval=FALSE, echo=FALSE, message=FALSE, fig.width=7, fig.height=5----
-#  # Of course, we can also go crazy:
-#  ggdraw() +
-#    #geom_rect(data = boxes, aes(xmin = x, xmax = x + .15, ymin = y, ymax = y + .15),
-#    #          colour = "gray60", fill = "red", alpha=.03) +
-#    geom_path(data = spiral, aes(x = x, y = y, colour = t), size = 6, alpha = .4) +
-#    draw_plot(plot.mpg, .3, .3, .4, .4) +
-#    draw_plot(plot.iris, 0, .7, .7, .35 ) +
-#    draw_plot(plot.iris, .45, .0, .6, .3 )
+## ----echo=TRUE, message=FALSE, comment=NA, warning=FALSE-----------------
+require(SciencesPo)
 
-## ----height.matters, fig.width=7, fig.height=5---------------------------
-theme_set(theme_pub())
+# default fontsize doesn't work well for online viewing
+theme_set(theme_pub(base_size=18)) 
 
-# Generating a ratio winner/opponent measure 
-Presidents = transform(Presidents, 
-                       height_ratio = winner.height/opponent.height) 
+## ----echo=FALSE, message=FALSE, fig.align="center", fig.width=5, fig.height=3.5, comment=NA, warning=FALSE----
+require(SciencesPo)
 
-# Avoid missing data
-Presidents <- subset(Presidents, !is.na(height_ratio))
+# default fontsize doesn't work well for online viewing
+theme_set(theme_pub(base_size=18)) 
 
-fit=lm(winner.vote~height_ratio,data=Presidents)
+gg <- ggplot(mtcars, aes(mpg, disp,color=factor(carb),size=hp)) 
+gg <- gg + geom_point(alpha=0.7) + labs(title="Bubble Plot")
+gg <- gg +scale_size_continuous(range = c(3,8)) 
+gg <- gg + theme_pub(legend = "none", base_size=18)
+gg 
 
-mylabel=lm2eqn("Presidents","height_ratio","winner.vote")
+## ----echo=TRUE, message=FALSE, comment=NA, warning=FALSE-----------------
+require(SciencesPo)
 
-p1 <- ggplot(Presidents, aes(x=height_ratio, y=winner.vote)) +
-      geom_smooth(method=lm, colour="red", fill="gold")+
-      geom_point(size = 5, alpha = .7) +
-      annotate(geom = 'text', x = 1.1, y = 70, size = 5, label = mylabel, fontface = 'italic') +
-      xlim(0.85,1.2) + ylim(25, 70) +
-      xlab("Winner/Opponent Height Ratio") + 
-      ylab("Relative Support for the Winner")
-p1 
+# "Verdana", "serif" and "sans" are also high-readability fonts
+theme_set(theme_pub(base_size=18, base_family = "serif")) 
 
-geom_foot("Draft Analysis, 2015", color = fade("brown1"))
+## ----echo=FALSE, message=FALSE, fig.align="center", fig.width=5, fig.height=3.5, comment=NA, warning=FALSE----
+require(SciencesPo)
 
+
+gg <- ggplot(mtcars, aes(mpg, disp,color=factor(carb),size=hp)) 
+gg <- gg + geom_point(alpha=0.7) + labs(title="Bubble Plot")
+gg <- gg +scale_size_continuous(range = c(3,8)) 
+gg <- gg + theme_pub(legend = "none", base_size=18, base_family = "serif") 
+gg
+
+## ----echo=TRUE, message=FALSE, comment=NA, warning=FALSE-----------------
+
+prefs <- theme(axis.text = element_text(size=18, 
+                                        family = "serif", 
+                                        colour="red"),
+               legend.justification=c(1,0),
+               legend.position=c(1,0), 
+               legend.position="bottom")
+
+
+## ----echo=FALSE, message=FALSE, fig.align="center", fig.width=5, fig.height=3.5, comment=NA, warning=FALSE----
+
+prefs <- theme(axis.text = element_text(size=18, 
+                                        family = "serif",
+                                        colour="red"),
+               legend.justification=c(1,0),
+               legend.position=c(1,0), 
+               legend.position="bottom")
+
+gg <- ggplot(mtcars, aes(mpg, disp,color=factor(carb),size=hp)) 
+gg <- gg + geom_point(alpha=0.7) + labs(title="Bubble Plot")
+gg <- gg +scale_size_continuous(range = c(3,8)) 
+gg <- gg + theme_pub(legend = "none")
+gg <- gg + prefs
+gg
+
+## ----echo=TRUE, fig.align="center", fig.width=5, fig.height=3.5, comment=NA, warning=FALSE----
+theme_set(theme_pub(base_size=16))
+
+gg <- ggplot(Presidents, aes(x=height_ratio, y=vote_support)) 
+gg <- gg + geom_smooth(method=lm, colour="red", fill="gold")
+gg <- gg + geom_point(size = 5, alpha = .7) 
+gg <- gg +  xlim(0.9,1.2) + ylim(.40, .70)
+gg <- gg + labs(x="Winner/Opponent height ratio", y="Winner vote share", title="Does height matter in presidential politics?")
+gg <- gg + theme_pub()
+
+# Commence adding layers here
+Render(gg) + Footnote(note="danielmarcelino.github.io")
+
+## ----eval=FALSE, echo=FALSE, fig.width=6, fig.height=4, message=FALSE, warning=FALSE, comment=NA----
+#  library(SciencesPo)
+#  library(extrafont)
+#  # font_import()
+#  exp_text <- "italic(y == frac(1, sqrt(2 * pi)) * e ^ {-frac(x^2, 2)} )"
+#  
+#  
+#  library(ggplot2)
+#  theme_set(theme_grey())
+#  
+#  set.seed(43121)
+#  
+#  means <- NULL
+#  adj_means <- NULL
+#  lambda <- 0.2
+#  n <- 40
+#  for(i in 1:1000){
+#      vals <- rexp(n, rate=lambda)
+#      means <- c(means, mean(vals))
+#      adj_means <- c(adj_means, (1/lambda)+((mean(vals)-1/lambda)/sqrt(var(vals)/n)))
+#  }
+#  
+#  
+#  g <- ggplot(data=data.frame(means=adj_means), aes(x=means))
+#  g <- g + ggtitle("Central Limit Theorem: Samples from Exponential Distribution")
+#  g <- g + xlab("Means from 1000 Samples (n=40)") + ylab("Density")
+#  g <- g + geom_histogram(
+#      aes(y=..density..), fill="#400040", colour="#FFFFFF", binwidth=0.1
+#  )
+#  g <- g + geom_vline(
+#      aes(xintercept=mean(means), colour="Actual Mean"), size=1,
+#      show.legend=TRUE
+#  )
+#  g <- g + geom_vline(
+#      aes(xintercept=1/lambda, colour="Expected Mean"), size=1,
+#      show.legend=TRUE
+#  )
+#  g <- g + stat_function(fun=dnorm, args=list(mean=1/lambda),
+#      aes(linetype="Normal Distribution"), colour="#D0D000", size=1,
+#      show.legend=FALSE
+#  )
+#  g <- g + scale_colour_manual("Means", values=c(
+#      "Expected Mean" = "#8080FF",
+#      "Actual Mean" = "#FF8080",
+#      "Normal Distribution" = NA
+#  ))
+#  g <- g + scale_linetype_manual("Functions", values=c(
+#      "Expected Mean" = "blank",
+#      "Actual Mean" = "blank",
+#      "Normal Distribution" = "solid"
+#  ))
+#  g <- g + guides(
+#      linetype = guide_legend(
+#          override.aes = list(colour="#D0D000")
+#      )
+#  )
+#  g
+#  
+
+## ----eval=FALSE, echo=FALSE, fig.width=6, fig.height=4, message=FALSE, warning=FALSE, comment=NA----
+#  
+#  d <- data.frame(x=c(1,1,2),y=c(1,2,2)*100)
+#  
+#  gg <- ggplot(d,aes(x,y))
+#  gg <- gg + scale_x_continuous(expand=c(0.5,1))
+#  gg <- gg + scale_y_continuous(expand=c(0.5,1))
+#  gg + geom_spotlight(s_shape=1, expand=0) + geom_point(color="red")
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=4, comment=NA, warning=FALSE----
+library("scales", quietly = TRUE)
+
+show_col(pub_color_pal("pub12")(12))
+
+## ----echo=TRUE,  fig.align="center", fig.width=3.5, fig.height=3.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("gray5")(6), labels = FALSE)
+
+## ----echo=TRUE,  fig.align="center", fig.width=3.5, fig.height=3.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("carnival")(6))
+
+## ----echo=TRUE,  fig.align="center", fig.width=3.5, fig.height=3.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("fte")(4))
+
+## ----echo=TRUE,  fig.align="center", fig.width=6, fig.height=4.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("manyeyes")(20))
+
+## ----echo=TRUE,  fig.align="center", fig.width=6, fig.height=4.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("tableau20")(20))
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=4, comment=NA, warning=FALSE----
+show_col(pub_color_pal("tableau10")(10))
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=4, comment=NA, warning=FALSE----
+show_col(pub_color_pal("tableau10medium")(10))
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=4, comment=NA, warning=FALSE----
+ show_col(pub_color_pal("tableau10light")(10))
+
+## ----echo=TRUE,  fig.align="center", fig.width=6, fig.height=4.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("cyclic")(20))
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=4, comment=NA, warning=FALSE----
+show_col(pub_color_pal("purplegray12")(12))
+
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=4, comment=NA, warning=FALSE----
+show_col(pub_color_pal("greenorange12")(12))
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=4, comment=NA, warning=FALSE----
+show_col(pub_color_pal("bluered12")(12))
+
+## ----echo=TRUE, fig.align="center", fig.width=6, fig.height=5, comment=NA, warning=FALSE----
+party_color_pal("BRA", plot=TRUE)
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=3.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("trafficlight")(9))
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=3.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("bivariate1")(9))
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=3.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("bivariate2")(9))
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=3.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("bivariate3")(9))
+
+## ----echo=TRUE,  fig.align="center", fig.width=4.5, fig.height=3.5, comment=NA, warning=FALSE----
+show_col(pub_color_pal("bivariate4")(9))
+
+## ---- echo=FALSE, message=FALSE, comment=NA------------------------------
+print(sessionInfo(), locale=FALSE)
+# library(help='SciencesPo')
 

@@ -1,24 +1,25 @@
 #' @encoding UTF-8
 #' @title Galton's Family Data on Human Stature.
 #'
-#' @description It is a reproduction of the data set used by Galton in his 1885's paper on correlation between parent's height and their children. However, Galton would only introduce the concept of correlation few years later, in 1888. Galton suggested the use of the regression line and was the first to describe the so-called common phenomenon of regression toward the mean by comparing his experiments on the size of the seeds of successive generations of peas. This dataset contains the following columns:
+#' @description It is a reproduction of the data set used by Galton in his 1885's paper on correlation between parent's height and their children, although the concept of correlation would be only introduced few years later, in 1888. This data.frame contains the following columns:
 #'
 #' \itemize{
-#'   \item parent the parents' average height
-#'   \item child the child's height
+#'   \item parent The parents' average height
+#'   \item child The child's height
 #' }
 #'
-#' @details Regression analysis is the statistical method most often used in political science research. The reason is that most scholars are interested in identifying \dQuote{causal} effects from non-experimental data and that regression is the method for doing this. The term \dQuote{regresssion} (1889) was first crafted by Sir Francis Galton upon investigating the relationship between body size of fathers and sons. Thereby he \dQuote{invented} regression analysis by estimating: \eqn{S_s = 85.7 + 0.56S_F} meaning that the size of the son regresses towards the mean.
+#' @details Regression analysis is the statistical method most often used in political science research. The reason is that most scholars are interested in identifying \dQuote{causal} effects from non-experimental data and that the linear regression is the method for doing this.
+#' The term \dQuote{regression} (1889) was first crafted by Sir Francis Galton upon investigating the relationship between body size of fathers and sons. Thereby he \dQuote{invented} regression analysis by estimating: \eqn{S_s = 85.7 + 0.56S_F}, meaning that the size of the son regresses towards the mean.
 #'
-#' @references  Francis Galton (1886) Regression Towards Mediocrity in Hereditary Stature. \emph{The Journal of the Anthropological Institute of Great Britain and Ireland,} Vol. \bold{15}, pp. 246--263.
+#' @references Francis Galton (1886) Regression Towards Mediocrity in Hereditary Stature. \emph{The Journal of the Anthropological Institute of Great Britain and Ireland,} Vol. \bold{15}, pp. 246--263.
 #'
 #' @docType data
 #' @keywords datasets
 #' @name galton
 #' @usage data(galton)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::galton)} variables and \Sexpr{nrow(SciencesPo::galton)} observations.
+#' @format
+#' A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::galton)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::galton)} observations.
 NULL
-
 
 
 
@@ -40,7 +41,7 @@ NULL
 #' @keywords datasets
 #' @name marriage
 #' @usage data(marriage)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::marriage)} variables and \Sexpr{nrow(SciencesPo::marriage)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::marriage)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::marriage)} observations.
 NULL
 
 
@@ -70,7 +71,7 @@ NULL
 #' @keywords datasets
 #' @name sheston91
 #' @usage data(sheston91)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::sheston91)} variables and \Sexpr{nrow(SciencesPo::sheston91)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::sheston91)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::sheston91)} observations.
 NULL
 
 
@@ -112,7 +113,7 @@ NULL
 #' @keywords datasets
 #' @name griliches76
 #' @usage data(griliches76)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::griliches76)} variables and \Sexpr{nrow(SciencesPo::griliches76)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::griliches76)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::griliches76)} observations.
 NULL
 
 
@@ -139,7 +140,7 @@ NULL
 #' @keywords datasets
 #' @name nerlove63
 #' @usage data(nerlove63)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::nerlove63)} variables and \Sexpr{nrow(SciencesPo::nerlove63)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::nerlove63)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::nerlove63)} observations.
 NULL
 
 
@@ -165,7 +166,7 @@ NULL
 #' @keywords datasets
 #' @name swatson93
 #' @usage data(swatson93)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::swatson93)} variables and \Sexpr{nrow(SciencesPo::swatson93)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::swatson93)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::swatson93)} observations.
 NULL
 
 
@@ -192,7 +193,7 @@ NULL
 #' @keywords datasets
 #' @name ltaylor96
 #' @usage data(ltaylor96)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::ltaylor96)} variables and \Sexpr{nrow(SciencesPo::ltaylor96)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::ltaylor96)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::ltaylor96)} observations.
 NULL
 
 
@@ -222,8 +223,10 @@ NULL
 #' @keywords datasets
 #' @name cgreene76
 #' @usage data(cgreene76)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::cgreene76)} variables and \Sexpr{nrow(SciencesPo::cgreene76)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::cgreene76)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::cgreene76)} observations.
 NULL
+
+
 
 
 
@@ -252,8 +255,11 @@ NULL
 #' @keywords datasets
 #' @name mishkin92
 #' @usage data(mishkin92)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::mishkin92)} variables and \Sexpr{nrow(SciencesPo::mishkin92)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::mishkin92)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::mishkin92)} observations.
 NULL
+
+
+
 
 
 
@@ -284,8 +290,11 @@ NULL
 #' @keywords datasets
 #' @name bhodrick93
 #' @usage data(bhodrick93)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::bhodrick93)} variables and \Sexpr{nrow(SciencesPo::bhodrick93)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::bhodrick93)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::bhodrick93)} observations.
 NULL
+
+
+
 
 
 
@@ -311,8 +320,10 @@ NULL
 #' @keywords datasets
 #' @name titanic
 #' @usage data(titanic)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::titanic)} variables and \Sexpr{nrow(SciencesPo::titanic)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::titanic)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::titanic)} observations.
 NULL
+
+
 
 
 
@@ -351,7 +362,7 @@ NULL
 #' \item v8 percent casting votes for U.S. Representatives, 1990.
 #' \item v9 population without a high school degree, of those 25 years or older, 1990.
 #' \item v10 population 25 years or older, 1990.
-#' \item v11 South =1; all others =0.
+#' \item v11 South = 1; all others = 0.
 #'  }
 #'
 #' @source U.S. Bureau of the Census, Statistical Abstract of the United States, 1994.
@@ -360,8 +371,10 @@ NULL
 #' @keywords datasets
 #' @name turnout
 #' @usage data(turnout)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::turnout)} variables and \Sexpr{nrow(SciencesPo::turnout)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::turnout)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::turnout)} observations.
 NULL
+
+
 
 
 
@@ -380,8 +393,11 @@ NULL
 #' @keywords datasets
 #' @name paired
 #' @usage data(paired)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::paired)} variables and \Sexpr{nrow(SciencesPo::paired)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::paired)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::paired)} observations.
 NULL
+
+
+
 
 
 
@@ -409,8 +425,10 @@ NULL
 #' @keywords datasets
 #' @name words
 #' @usage data(words)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::words)} variables and \Sexpr{nrow(SciencesPo::words)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::words)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::words)} observations.
 NULL
+
+
 
 
 
@@ -433,13 +451,15 @@ NULL
 #' @keywords datasets
 #' @name cathedrals
 #' @usage data(cathedrals)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::cathedrals)} variables and \Sexpr{nrow(SciencesPo::cathedrals)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::cathedrals)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::cathedrals)} observations.
 NULL
 
 
 
+
+
 #' @encoding UTF-8
-#' @title Burt's twin data
+#' @title Burt's Twin Data
 #'
 #' @description The given data are IQ scores from identical twins; one raised in a foster home, and the other raised by birth parents.
 #' This dataset contains the following columns:
@@ -460,8 +480,10 @@ NULL
 #' @keywords datasets
 #' @name twins
 #' @usage data(twins)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::twins)} variables and \Sexpr{nrow(SciencesPo::twins)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::twins)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::twins)} observations.
 NULL
+
+
 
 
 
@@ -484,25 +506,32 @@ NULL
 #' \item turnout The electorate turnout in percentages.
 #' \item winner.bmi The winner Body Mass Index (BMI) estimate \code{(BMI = weight in kg/(height in meter)**2)}
 #'  }
+#'  @references
+#' Murray, G. R. (2014) Evolutionary preferences for physical formidability in leaders. \emph{Politics and the Life Science}, 33(1), 33-53.
+#'
 #' @source
-#' US Presidents: \url{http://www.jimwegryn.com/Names/Presidents.php}
+#' US Presidents: \url{http://www.lingerandlook.com/Names/Presidents.php}
 #' Inside Gov. \url{http://www.us-presidents.insidegov.com}.
-#' Wikipedia: \url{http://en.wikipedia.org/wiki/United_States_presidential_election,_2012}.
-#' Wikipedia:\url{http://en.wikipedia.org/wiki/Heights_of_presidents_and_presidential_candidates_of_the_United_States}.
 #'
 #' @docType data
 #' @keywords datasets
-#' @name Presidents
-#' @usage data(Presidents)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::Presidents)} variables and \Sexpr{nrow(SciencesPo::Presidents)} observations.
+#' @name stature
+#' @usage data(stature)
+#' # t.test(stature$winner.height, stature$opponent.height, var.equal=TRUE)
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::stature)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::stature)} observations.
 NULL
 
 
+
+
+
+
+#' @encoding UTF-8
 #' @title Approval Ratings for President George W. Bush
 #'
 #' @description Approval ratings for George W. Bush.
 #'
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::Bush)} variables and \Sexpr{nrow(SciencesPo::Bush)} observations.
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::bush)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::bush)} observations.
 #' \itemize{
 #' \item start.date. Start date of the survey.
 #' \item end.date. End date of the survey.
@@ -510,38 +539,304 @@ NULL
 #' \item disapprove. Percent which disapprove of the president.
 #' \item undecided. Percent undecided about the president.
 #' }
+#' @details A data set of approval ratings of George Bush over the time of
+#'  his presidency, as reported by several agencies. Most polls were
+#'  of size approximately 1,000 so the margin of error is about 3 percentage points.
+#'  @source
+#'  \url{http://www.pollingreport.com/BushJob.htm}
+#'
 #' @docType data
 #' @keywords datasets
-#' @name Bush
-#' @usage data(Bush)
+#' @name bush
+#' @usage data(bush)
 #'
 NULL
 
 
 
-#' @title Measurement System Units
+
+
+#' @encoding UTF-8
+#' @title Polls for 2008 U.S. presidential election
 #'
-#' @description A dataset with measurement system units.
+#' @description Polls for the 2008 U.S. presidential election.
+#' The data includes all presidential polls reported on the
+#' internet site \url{http://www.elections.huffingtonpost.com/pollster} that were taken
+#' between August 29th, when John Mc-Cain announced
+#' that Sarah Palin would be his running mate as the Republican
+#' nominee for vice president, and the end of September.
+#'
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::pollster2008)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::pollster2008)} observations.
+#' \itemize{
+#' \item PollTaker Polling organization.
+#' \item PollDates Dates the poll data were collected.
+#' \item MidDate Midpoint of the polling period.
+#' \item Days Number of days after August 28th (end of Democratic convention).
+#' \item n Sample size for the poll.
+#' \item Pop \code{A}=all, \code{LV}=likely voters, \code{RV}=registered voters.
+#' \item McCain Percent supporting John McCain.
+#' \item Obama Percent supporting Barak Obama.
+#' \item Margin Obama percent minus McCain percent.
+#' \item Charlie Indicator for polls after Charlie Gibson interview with VP candidate Sarah Palin (9/11).
+#' \item Meltdown Indicator for polls after Lehman Brothers bankruptcy (9/15).
+#' }
+#'  @source
+#'  \url{http://www.elections.huffingtonpost.com/pollster}
+#'
+#' @docType data
+#' @keywords datasets
+#' @name pollster2008
+#' @usage data(pollster2008)
+#'
+NULL
+
+
+
+
+
+#' @encoding UTF-8
+#' @title 2008 U.S. presidential election
+#'
+#' @description State-by-state information from the 2008 U.S. presidential election.
+#'
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::election2008)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::election2008)} observations.
+#' \itemize{
+#' \item State Name of the state.
+#' \item Abr Abbreviation for the state.
+#' \item Income Per capita income in the state as of 2007 (in dollars).
+#' \item HS Percentage of adults with at least a high school education.
+#' \item BA Percentage of adults with at least a college education.
+#' \item Dem.Rep Difference in \%Democrat-\%Republican (according to 2008 Gallup survey).
+#' \item ObamaWin \code{1}= Obama (Democrat) wins state in 2008 or \code{0}=McCain (Republican wins).
+#' }
+#'  @source
+#' State income data from: Census Bureau Table 659. Personal Income Per Capita (in 2007).
+#' High school data from: U.S. Census Bureau, 1990 Census of Population,
+#' \url{http://www.nces.ed.gov/programs/digest/d08/tables/dt08_011.asp}.
+#' College data from: Census Bureau Table 225. Educational Attainment by State (in 2007)
+#'  Democrat and Republican data from:
+#' \url{http://www.gallup.com/poll/114016/state-states-political-party-affiliation.aspx}
+#' @docType data
+#' @keywords datasets
+#' @name election2008
+#' @usage data(election2008)
+#'
+NULL
+
+
+
+
+#' @encoding UTF-8
+#' @title Data on religiosity of countries
+#'
+#' @description Data from the 2007 Spring Survey conducted through the Pew Global Attitudes Project.
+#'
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::religiosity)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::religiosity)} observations.
+#' \itemize{
+#' \item Country Name of country.
+#' \item Religiosity A measure of degree of religiosity for residents of the country.
+#' \item GDP Per capita Gross Domestic Product in the country.
+#' \item Africa Indicator for countries in Africa.
+#' \item EastEurope Indicator for countries in Eastern Europe.
+#' \item MiddleEast Indicator for countries in the Middle East.
+#' \item Asia Indicator for countries in Asia.
+#' \item WestEurope Indicator for countries in Western Europe.
+#' \item Americas Indicator for countries in North/South America.
+#' }
+#'  @source
+#'  The Pew Research Center's Global Attitudes Project surveyed
+#'  people around the world and asked (among many other questions) whether they agreed that "belief
+#'  in God is necessary for morality," whether religion is very important in their lives, and
+#'  whether the at least once per day. The variable Religiosity is the sum of the percentage
+#'  of positive responses on these three items, measured in each of 44 countries. The dataset also
+#'   includes the per capita GDP for each country and indicator variables that record the part of the world the country is in.
+#'  \url{http://www.pewglobal.org}
+#'
+#' @docType data
+#' @keywords datasets
+#' @name religiosity
+#' @usage data(religiosity)
+NULL
+
+
+
+
+
+#' @encoding UTF-8
+#' @title Poll attitudes towards British trade unions
+#'
+#' @description The British polling company Ipsos MORI conducted several
+#' opinion polls in the UK between 1975 and 1995 in which they asked whether
+#' people agree or disagree with the statement "Trade unions have too much
+#' power in Britain today".
+#'
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::unions)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::unions)} observations.
+#' \itemize{
+#' \item Date Month of the poll \code{Aug-77} to \code{Sep-79}.
+#' \item AgreePct Percent who agree (unions have too much power).
+#' \item DisagreePct Percent who disagree.
+#' \item NetSupport DisagreePct-AgreePct.
+#' \item Months Months since August 1975.
+#' \item Late \code{1}=after 1986 or \code{0}=before 1986.
+#' \item Unemployment Unemployment rate.
+#' }
+#'  @source
+#'  \url{http://www.ipsos-mori.com/researchpublications/researcharchive/poll.aspx?oItemID=94}
+#'
+#' @docType data
+#' @keywords datasets
+#' @name unions
+#' @usage data(unions)
+#'
+NULL
+
+
+
+
+
+
+
+
+#' @encoding UTF-8
+#' @title A dataset that contains four test items
+#'
+#' @description A dataset with four test items used in SPSS to to compute Cronbach's alpha.
 #'
 #' \itemize{
-#' \item from A character defining the original unit.
-#' \item to A character defining the target unit.
-#' \item factor The factor to be applied in conversion.
-#' \item description Some details about the measure.
+#' \item q1:q4 Numeric items of a scale.
 #' }
 #' @docType data
 #' @keywords datasets
-#' @name Units
-#' @usage data(Units)
-#' @format A \code{data.frame} object with \Sexpr{ncol(SciencesPo::Units)} variables and \Sexpr{nrow(SciencesPo::Units)} observations.
+#' @name alpha
+#' @usage data(alpha)
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::alpha)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::alpha)} observations.
 #'
 NULL
 
+
+#' @encoding UTF-8
+#' @title Bradley Efron and Carl Morris ("Stein's Paradox in Statistics)
+#'
+#' @description A dataset used in Efron and Morris's 1977 paper, "Stein's Paradox in Statistics".
+#'
+#' \itemize{
+#' \item {name}{First and last name of selected player}.
+#' \item {atBats}{number of times at bats}.
+#' \item {hits}{number of hits after 45 at bats}.
+#' \item {avg45}{is the average after 45 at bats}.
+#' \item {remainingAtBats}{remaining number at bats}.
+#' \item {remainingAvg}{is the remaining average to the end of the season}.
+#' \item {seasonAtBats}{is the number of times at bats in the end of the season}.
+#' \item {seasonHits}{is the number of hits in the end of the season}.
+#' \item {avgSeason}{is the end of the season average}.
+#' }
+#' @docType data
+#' @keywords datasets
+#' @name baseball
+#' @usage data(baseball)
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::baseball)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::baseball)} observations.
+#'
+NULL
+
+
+
+#' @encoding UTF-8
+#' @title Smoking and Lung Cancer in China
+#'
+#' @description The Chinese smoking and lung cancer data (Agresti,  Table 5.12, p. 60).
+#' \itemize{
+#' \item {City}{city name}.
+#' \item {Smoker}{if smoker or not}.
+#' \item {Cancer}{if detected cancer or not}.
+#' \item {Count}{the frequencies}.
+#' }
+#'  @references
+#' Agresti, A. \emph{An introduction to categorical Data Analysis}, (2nd ed.). Wiley.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name chismoke
+#' @usage data(chismoke)
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::chismoke)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::chismoke)} observations.
+#'
+NULL
+
+
+#' @encoding UTF-8
+#' @title Bollen Data on Industrialization and Political Democracy
+#'
+#' @description The data were reported in Bollen
+#' (1989, p. 428, Table 9.4) This set includes data from
+#' 75 developing countries each assessed on four measures
+#' of democracy measured twice (1960 and 1965), and three
+#' measures of industrialization measured once (1960).
+#' \itemize{
+#'\item{y1}{Freedom of the press, 1960}
+#'\item{y2}{Freedom of political opposition, 1960}
+#'\item{y3}{Fairness of elections, 1960}
+#'\item{y4}{Effectiveness of elected legislature, 1960}
+#'\item{y5}{Freedom of the press, 1965}
+#'\item{y6}{Freedom of political opposition, 1965}
+#'\item{y7}{Fairness of elections, 1965}
+#'\item{y8}{Effectiveness of elected legislature, 1965}
+#'\item{x1}{GNP per capita, 1960}
+#'\item{x2}{Energy consumption per capita, 1960}
+#'\item{x3}{Percentage of labor force in industry, 1960}
+#'}
+
+#'  @references
+#'  Bollen, K. A. (1979). Political democracy and the timing of
+#'  development. \emph{American Sociological Review}, 44, 572-587.
+#'
+#'  Bollen, K. A. (1980). Issues in the comparative measurement of
+#' political democracy. \emph{American Sociological Review}, 45, 370-390.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name bollen
+#' @usage data(bollen)
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::bollen)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::bollen)} observations.
+#'
+NULL
+
+
+#' @encoding UTF-8
+#' @title Big 5 dataset
+#'
+#' @description This is a dataset of the Big 5 personality traits. It is a measurement of the Dutch translation of the NEO-PI-R on 500 first year psychology students (Dolan, Oort, Stoel, Wicherts, 2009). The test consists of fifty items that you must rate on how true they are about you on a five point scale where 1=Disagree, 3=Neutral and 5=Agree. It takes most people 3-8 minutes to complete.
+#'
+#' \itemize{
+#'\item{Neuroticism}{The level of neuroticism}
+#'\item{Extraversion}{The level of extraversion}
+#'\item{Openness}{The level of openness}
+#'\item{Agreeableness}{The level of agreeableness}
+#'\item{Conscientiousness}{The level of conscientiousness}
+#'}
+
+#' @references
+#' Hoekstra, H. A., Ormel, J., & De Fruyt, F. (2003). NEO-PI-R/NEO-FFI:
+#' Big 5 persoonlijkheidsvragenlijst. Handleiding \emph{Manual of the
+#' Dutch version of the NEO-PI-R/NEO-FFI}. Lisse, The Netherlands:
+#' Swets and Zeitlinger.
+#'
+#' Dolan, C. V., Oort, F. J., Stoel, R. D., & Wicherts, J. M. (2009).
+#' Testing measurement invariance in the target rotates multigroup
+#' exploratory factor model. \emph{Structural Equation Modeling},
+#' 16, 295<96>314.
+
+#' @docType data
+#' @keywords datasets
+#' @name big5
+#' @usage data(big5)
+#' @format A \code{data.frame} object with \Sexpr[stage=build,results=rd]{ncol(SciencesPo::big5)} variables and \Sexpr[stage=build,results=rd]{nrow(SciencesPo::big5)} observations.
+#'
+NULL
+
+
+
 #' # setwd("~/SciencesPo/data")
-#' # system("cp Bush.txt Bush-cp.txt")
-#' # system("rm Bush-cp.txt.gz")
-#' # system("gzip Bush.txt")
-#' # system("rm Bush-cp.txt")
-
-
+#' # system("cp big5.txt big5-cp.txt")
+#' # system("rm big5.txt.gz")
+#' # system("gzip big5.txt")
+#' # system("rm big5-cp.txt")
 

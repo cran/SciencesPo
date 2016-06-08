@@ -1,11 +1,11 @@
 #' @title Examples from the SciencesPo Package
 #'
-#' @description Launchs a Shiny app that shows a demo.
-#' @param example The name of the shiny application.
+#' @description Launch a Shiny app that shows a demo.
+#' @param example the name of the shiny application.
 #' @examples
-#' # A demo of what \code{\link[SciencesPo]{politicalDiversity}} does.
+#' # A demo of what \code{\link[SciencesPo]{PoliticalDiversity}} does.
 #' if (interactive()) {
-#' runExample(politicalDiversity)
+#' runExample(PoliticalDiversity)
 #' }
 #' @export
 #'
