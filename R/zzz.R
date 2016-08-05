@@ -1,22 +1,12 @@
-.onAttach <- function(...) {
-  # Send message
-  msg <- function() {
-    #message("")
-    packageStartupMessage("initializing ...", appendLF = FALSE)
-    Sys.sleep(1)
-    packageStartupMessage(" done")
-  }
-  packageStartupMessage(msg())
-  # suppressMessages(msg())
+.onAttach <- function(lib, pkg) {
+  ver <- read.dcf(file.path(lib, pkg, "DESCRIPTION"), "Version")
+  packageStartupMessage(paste(pkg, ver))
   options(scipen = 999)
-  # options(quiet = FALSE)
-  # ggplot2::theme_set(theme_pub())
+  options(quiet = TRUE)
+  #ggplot2::theme_set(theme_pub())
 }
 NULL
 # SciencesPo_env <- new.env()
-
-
-
 
 
 `%=%` <- function(x, y) {
@@ -48,8 +38,8 @@ ggname <- function(prefix, grob) {
     c(
       "Hello World!",
       "Yo world!",
-      "Yo, you lookin' at twenty",
-      "Bitch, you ain't givin' me any"
+      "Before there was R, there was S.",
+      "Programming is like writing a book ...\n...except if you miss out a single comma on page 126 the whole thing makes no damn sense."
     ),
     1
   ))
@@ -586,3 +576,123 @@ rounder <- function(x, decimals = FALSE) {
     stop('Argument needs to be of class "ggplot" or "gtable"')
   }
 }
+
+
+describe_df <- function(x) {
+  sprintf("\\code{data.frame} with %d observations of the following %d variables,",
+          nrow(x), ncol(x))
+}
+
+df_format <- function(x) {
+  template <- "%s\n\\describe{\n%s\n}"
+  items <- sapply(names(x),
+                  function(i) sprintf("\\item{\\code{%s}}{%s}", i,
+                                      ifelse(is.null(comment(x[[i]])), i, comment(x[[i]]))))
+  sprintf(template, describe_df(x), paste(items, collapse="\n"))
+}
+
+
+
+`IsExtrafontInstalled` <- function(){
+  if(is.element("extrafont", installed.packages()[,1])){
+    requireNamespace("extrafont")
+    # probably need something here to run font_import()
+    return(T)
+  }else{
+    warning("Library extrafont installed; using system sans/serif libraries as fallback fonts.
+            To enable full font support, run:
+            install.packages('extrafont')
+            font_import()")
+    return(F)
+  }
+}
+NULL
+
+
+
+
+
+# Determines if a value is above or below a line
+Intersection <- function(x.min, x.max, y, b, c) {
+  y.min <- x.min * b + c
+  y.max <- x.max * b + c
+
+  if ((y.min <= y & y.max >= y) | (y.min >= y & y.max <= y)) {
+    print("intersection")
+  }
+  else if (y > y.min) {
+    print("above")
+  }
+  else {
+    print("below")
+  }
+}
+NULL
+
+
+
+
+rbind_gtable_max <- function(...) {
+
+  gtl <- list(...)
+  stopifnot(all(sapply(gtl, gtable::is.gtable)))
+  bind2 <- function (x, y) {
+    stopifnot(ncol(x) == ncol(y))
+    if (nrow(x) == 0)
+      return(y)
+    if (nrow(y) == 0)
+      return(x)
+    y$layout$t <- y$layout$t + nrow(x)
+    y$layout$b <- y$layout$b + nrow(x)
+    x$layout <- rbind(x$layout, y$layout)
+    x$heights <- insert_unit(x$heights, y$heights)
+    x$rownames <- c(x$rownames, y$rownames)
+    x$widths <- grid::unit.pmax(x$widths, y$widths)
+    x$grobs <- append(x$grobs, y$grobs)
+    x
+  }
+  Reduce(bind2, gtl)
+
+}
+
+cbind_gtable_max <- function(...) {
+
+  gtl <- list(...)
+  stopifnot(all(sapply(gtl, gtable::is.gtable)))
+  bind2 <- function (x, y) {
+    stopifnot(nrow(x) == nrow(y))
+    if (ncol(x) == 0)
+      return(y)
+    if (ncol(y) == 0)
+      return(x)
+    y$layout$l <- y$layout$l + ncol(x)
+    y$layout$r <- y$layout$r + ncol(x)
+    x$layout <- rbind(x$layout, y$layout)
+    x$widths <- insert_unit(x$widths, y$widths)
+    x$colnames <- c(x$colnames, y$colnames)
+    x$heights <- grid::unit.pmax(x$heights, y$heights)
+    x$grobs <- append(x$grobs, y$grobs)
+    x
+  }
+  Reduce(bind2, gtl)
+
+}
+
+insert_unit <- function (x, values, after = length(x)) {
+  lengx <- length(x)
+  if (lengx == 0)
+    return(values)
+  if (length(values) == 0)
+    return(x)
+  if (after <= 0) {
+    grid::unit.c(values, x)
+  }
+  else if (after >= lengx) {
+    grid::unit.c(x, values)
+  }
+  else {
+    grid::unit.c(x[1L:after], values, x[(after + 1L):lengx])
+  }
+}
+
+

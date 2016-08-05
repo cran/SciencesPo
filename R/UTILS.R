@@ -45,32 +45,6 @@ NULL
 
 
 
-#' @encoding UTF-8
-#' @title Convert All Factor Columns to Character Columns of a Data Frame
-#'
-#' @description By default, R converts character columns to factors.
-#' Instead of re-reading the data using \code{stringsAsFactors}, the
-#' \code{\link{Safechars}} function will identify which columns are currently factors, and convert them all to characters.
-#' @author Daniel Marcelino, \email{dmarcelino@@live.com}.
-#'
-#' @param .data a \code{data.frame}.
-#' @seealso \code{\link{read.table}}, \code{\link{Destring}}.
-#' @keywords internal
-#' @examples
-#'  str(iris)
-#' iris_2 = Safechars(iris)
-#' str(iris_2)
-#'
-#' @export
-`Safechars` <- function(.data) {
-  .data[sapply(.data, is.factor)] <-
-    lapply(.data[sapply(.data, is.factor)], as.character)
-  .data
-}### end -- Safechars function
-NULL
-
-
-
 
 #' @encoding UTF-8
 #' @title Some Formats for Nicer Display
@@ -166,7 +140,7 @@ NULL
 #' @param vjust vertical justification
 #' @param fontfamily the font family
 #' @param fontface the font face ("plain", "bold", etc.)
-#' @param colour text color
+#' @param color text color
 #' @param size point size of text
 #' @param angle angle at which text is drawn
 #' @param lineheight line height of text
@@ -184,14 +158,14 @@ NULL
            newlines = TRUE,
            fontfamily = "serif",
            fontface = "plain",
-           colour = "gray85",
+           color = "gray85",
            size = 9,
            angle = 0,
            lineheight = 0.9,
            alpha = 1)
   {
     text_par <- grid::gpar(
-      col = colour,
+      col = color,
       fontsize = size,
       fontfamily = fontfamily,
       fontface = fontface,
@@ -225,11 +199,32 @@ NULL
 
 
 
+#' @title Print the current date in a pretty format
+#'
+#' @description Print the current date in a pretty format.
+#' @return string
+#' @export
+#'
+#' @examples
+#' Today()
+
+Today <- function() {
+  d <- date()
+  month <- substr(d,5,7)
+  day <- substr(d,9,10)
+  year <- substr(d,21,24)
+  paste(day,month,year)
+}
+NULL
+
+
+
+
 #' @title Render layer on top of a ggplot
 #' @description Set up a rendering layer on top of a ggplot.
 #' @param plot the plot to use as a starting point, either a ggplot2 or gtable.
 #' @export
-Render <- function(plot = NULL) {
+`Render` <- function(plot = NULL) {
   d <- data.frame(x = 0:1, y = 0:1)  # dummy data
   p <- ggplot(d, aes_string(x = "x", y = "y")) + # empty plot
     scale_x_continuous(limits = c(0, 1), expand = c(0, 0)) +
@@ -244,3 +239,51 @@ Render <- function(plot = NULL) {
   p
 }
 NULL
+
+
+#' Veritical, left-aligned layout for plots
+#'
+#' Left-align the waffle plots by x-axis. Use the \code{pad} parameter in
+#' \code{waffle} to pad each plot to the max width (num of squares), otherwise
+#' the plots will be scaled.
+#'
+#' @param ... one or more waffle plots
+#' @export
+#' @examples
+#' parts <- c(80, 30, 20, 10)
+#'
+#' w1 <- Waffleplot(parts, rows=8)
+#' w2 <- Waffleplot(parts, rows=8)
+#' w3 <- Waffleplot(parts, rows=8)
+#' chart <- Forge(w1, w2, w3)
+#' print(chart)
+#'
+Forge <- function(...) {
+  grob_list <- list(...)
+  grid::grid.newpage()
+  grid::grid.draw(do.call("rbind_gtable_max", lapply(grob_list, ggplot2::ggplotGrob)))
+}
+NULL
+
+
+
+
+#' Clean up a character vector to make it numeric
+#'
+#' Remove commas and whitespace, primarily
+#'
+#' @param x character vector to process
+#' @return numeric vector
+#' @keywords Clean-up
+#' @export
+MakeNumeric <- function(x) { as.numeric(gsub(",", "", trimws(x))) }
+
+#' Clean up a character vector to make it a percent
+#'
+#' Remove "%" primarily, convert to numeric and divide by 100
+#'
+#' @param x character vector to process
+#' @return numeric vector
+#' @keywords Clean-up
+#' @export
+MakeShare <- function(x) { as.numeric(gsub("%", "", trimws(x))) / 100 }

@@ -100,6 +100,7 @@ NULL
 `Sum` <- function(x) sum(x, na.rm=TRUE)
 
 
+
 #' @rdname Operations
 #' @export
 `Sums` <- function(x) {
@@ -264,3 +265,5 @@ NULL
   return(x)
 }
 NULL
+
+
